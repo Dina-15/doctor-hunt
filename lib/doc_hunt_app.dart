@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'core/routing/app_router.dart';
 
@@ -17,6 +18,7 @@ class DocHuntApp extends StatelessWidget {
           title: 'Doc Hunt App',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.transparent,
+            textTheme: GoogleFonts.rubikTextTheme(),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
           ),
           debugShowCheckedModeBanner: false,
