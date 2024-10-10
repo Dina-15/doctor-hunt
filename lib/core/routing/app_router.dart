@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/core/routing/routes.dart';
-// import 'package:doctor_hunt/features/onboarding/onboarding_screen.dart';
+import 'package:doctor_hunt/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -7,8 +7,7 @@ class AppRouter {
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(),
-          // builder: (_) => const OnboardingScreen(),
+          builder: (_) => const OnboardingScreen(),
         );
       default:
         return null;

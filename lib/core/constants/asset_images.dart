@@ -1,7 +1,8 @@
 abstract class AssetImages {
-  static const splash = "assets/images/splash_icon.png";
-  static const splash12 = "assets/images/splash.png";
-  static const onBoarding1 = "assets/images/onboarding1.png";
-  static const onBoarding2 = "assets/images/onboarding2.png";
-  static const onBoarding3 = "assets/images/onboarding3.png";
+  static String splash = "assets/images/splash_icon.png";
+  static String splash12 = "assets/images/splash.png";
+  static String onBoarding1 = "assets/images/onboarding1.png";
+  static String onBoarding2 = "assets/images/onboarding2.png";
+  static String onBoarding3 = "assets/images/onboarding3.png";
+  static String backGround = "assets/images/bg.png";
 }
