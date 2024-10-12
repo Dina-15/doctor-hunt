@@ -11,7 +11,7 @@ class GetStartButton extends StatelessWidget {
     return  AppTextButton(
       buttonText: 'Get Started',
       textStyle: TextStyle(color: Colors.white,
-          fontSize: 18),
+          fontSize: 18.sp),
       borderRadius: 15,
       buttonHeight:  40.h,
       buttonWidth: 250.w,
