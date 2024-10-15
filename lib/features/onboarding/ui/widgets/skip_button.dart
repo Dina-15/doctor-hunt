@@ -9,7 +9,7 @@ class SkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      child: Text("Skip", style: TextStyles.font14GrayRegular),
+      child: Text("Skip", style: AppStyles.font14GrayRegular),
     );
   }
 }

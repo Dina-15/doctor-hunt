@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../data/models/page_model.dart';
@@ -11,7 +12,7 @@ class OnboardingPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Stack(
         children: [Column(
           children: <Widget>[
@@ -28,7 +29,6 @@ class OnboardingPageView extends StatelessWidget {
               style: AppStyles.font14GrayRegular,
               textAlign: TextAlign.center,
             ),
-            // verticalSpace(0),
           ],
         ),]
       ),

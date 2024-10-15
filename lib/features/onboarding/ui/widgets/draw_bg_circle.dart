@@ -9,13 +9,13 @@ class DrawBgCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: -30.sp,
-      left: -130.sp,
+      top: -30.h,
+      left: -130.w,
       child: Container(
         width: 340.w,
         height: 340.h,
         decoration: BoxDecoration(shape: BoxShape.circle,
-        color: ColorsManager.primaryColor),
+        color: AppColors.primaryColor),
       ),
     );
   }

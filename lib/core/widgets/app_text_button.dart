@@ -35,11 +35,11 @@ class AppTextButton extends StatelessWidget {
         ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16),
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
           ),
         ),
         backgroundColor: WidgetStateProperty.all(
-            backgroundColor ?? ColorsManager.primaryColor),
+            backgroundColor ?? AppColors.primaryColor),
         padding: WidgetStateProperty.all(
           EdgeInsets.symmetric(
               horizontal: horizontalPadding?.w ?? 12.w,
@@ -49,6 +49,7 @@ class AppTextButton extends StatelessWidget {
       child: Text(
         buttonText,
         style: textStyle,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }
