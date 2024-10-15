@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:doctor_hunt/core/constants/asset_images.dart';
+import '../../../../core/widgets/custom_dg_gradient.dart';
 import '../widgets/onboarding_body.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -8,15 +8,9 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(AssetImages.backGround), fit: BoxFit.cover),
-        ),
-        child: const OnboardingBody()
-      ),
+      body: CustomDgGradient(child: OnboardingBody()),
     );
   }
 }

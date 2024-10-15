@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/features/onboarding/ui/widgets/draw_bg_circle.dart';
 import 'package:doctor_hunt/features/onboarding/ui/widgets/skip_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../logic/entities/onboarding_page.dart';
-import '../widgets/onboarding_page_view.dart';
+import '../widgets/page_view_item.dart';
 import '../widgets/build_smooth_indicator.dart';
 import '../widgets/get_start_button.dart';
 
@@ -47,7 +48,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 itemCount: pagesList.length,
                 itemBuilder: (context, index) {
                   return SizedBox(
-                      height: 500,
+                      height: 500.h,
                       child: OnboardingPageView(myPage: pagesList[index]));
                 }),
           ]),
@@ -68,7 +69,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
           onPressed: () {
             setState(() {
               if (_currPageIndex == pagesList.length - 1) {
-                Navigator.pushNamed(context, "/HomeScreen");
+                Navigator.pushNamed(context, "/LoginScreen");
               } else {
                 _pageController.jumpToPage(++_currPageIndex);
               }
@@ -77,9 +78,9 @@ class _OnboardingBodyState extends State<OnboardingBody> {
         ),
         verticalSpace(10),
         SkipButton(onPressed: () {
-          Navigator.pushNamed(context, "/HomeScreen");
+          Navigator.pushNamed(context, "/LoginScreen");
         }),
-        verticalSpace(20),
+        verticalSpace(30),
       ],
     );
   }

@@ -13,7 +13,7 @@ class BuildSmoothIndicator extends StatelessWidget {
       duration: const Duration(microseconds: 250),
       width: 10.w,
       height: 10.h,
-      margin: const EdgeInsets.symmetric(horizontal: 3),
+      margin: EdgeInsets.symmetric(horizontal: 3.w),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: index == currPageIndex
