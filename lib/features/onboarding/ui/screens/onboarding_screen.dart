@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/custom_dg_gradient.dart';
+import '../../../../core/widgets/custom_bg_gradient.dart';
 import '../widgets/onboarding_body.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class OnboardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
-      body: CustomDgGradient(child: OnboardingBody()),
+      body: CustomBgGradient(child: OnboardingBody()),
     );
   }
 }

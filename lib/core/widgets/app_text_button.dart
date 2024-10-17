@@ -9,6 +9,7 @@ class AppTextButton extends StatelessWidget {
   final double? verticalPadding;
   final double? buttonWidth;
   final double? buttonHeight;
+  final double? elevation;
   final String buttonText;
   final TextStyle textStyle;
   final VoidCallback onPressed;
@@ -20,6 +21,7 @@ class AppTextButton extends StatelessWidget {
     this.verticalPadding,
     this.buttonHeight,
     this.buttonWidth,
+    this.elevation,
     required this.buttonText,
     required this.textStyle,
     required this.onPressed,
@@ -27,15 +29,16 @@ class AppTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        elevation: WidgetStatePropertyAll(elevation?? 1),
         fixedSize: WidgetStatePropertyAll(
           Size(buttonWidth?.w ?? double.maxFinite, buttonHeight?.h ?? 50.h),
         ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
+            borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
           ),
         ),
         backgroundColor: WidgetStateProperty.all(
@@ -43,14 +46,12 @@ class AppTextButton extends StatelessWidget {
         padding: WidgetStateProperty.all(
           EdgeInsets.symmetric(
               horizontal: horizontalPadding?.w ?? 12.w,
-              vertical: verticalPadding?.h ?? 14),
+              vertical: verticalPadding?.h ?? 14.h),
         ),
       ),
-      child: Text(
-        buttonText,
-        style: textStyle,
-        overflow: TextOverflow.ellipsis,
-      ),
+      child: Text(buttonText,
+      style: textStyle,
+      overflow: TextOverflow.ellipsis,),
     );
   }
 }

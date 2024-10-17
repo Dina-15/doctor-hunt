@@ -18,12 +18,12 @@ class DocHuntApp extends StatelessWidget {
           title: 'Doc Hunt App',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.transparent,
-            textTheme: GoogleFonts.rubikTextTheme(),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
           ),
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.onBoardingScreen,
           onGenerateRoute: appRouter.generateRoute,
-        ));
+        ),
+    );
   }
 }
