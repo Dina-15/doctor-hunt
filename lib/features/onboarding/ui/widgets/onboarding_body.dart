@@ -69,7 +69,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
           onPressed: () {
             setState(() {
               if (_currPageIndex == pagesList.length - 1) {
-                Navigator.pushNamed(context, "/LoginScreen");
+                Navigator.pushNamed(context, "/loginScreen");
               } else {
                 _pageController.jumpToPage(++_currPageIndex);
               }
@@ -78,7 +78,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
         ),
         verticalSpace(10),
         SkipButton(onPressed: () {
-          Navigator.pushNamed(context, "/LoginScreen");
+          Navigator.pushNamed(context, "/loginScreen");
         }),
         verticalSpace(30),
       ],

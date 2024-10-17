@@ -22,18 +22,22 @@ class AppTextFormField extends StatelessWidget {
   //  The hint text displayed when the text field is empty.
   final Widget? suffixIcon;
   // An optional widget to display at the end of the text field.
+  final Color? suffixIconColor;
   final Widget? prefixIcon;
   final Color? fillColor;
   // Background color of the text field.
   final TextEditingController? controller;
   // final Function(String?) validator;
   final Function(String?)? validator;
+  final Function(String?)? onChanged;
+  final VoidCallback? onTap;
   final Color? enabledBorderSideColor;
   final Color? focusedBorderColor;
   final int? radius;
   final String? labelText;
   final TextStyle? labelStyle;
   final Color? cursorColor;
+  final TextInputType keyboardType;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -43,6 +47,7 @@ class AppTextFormField extends StatelessWidget {
     this.isObscureText,
     required this.hintText,
     this.suffixIcon,
+    this.suffixIconColor,
     this.prefixIcon,
     this.fillColor,
     this.controller,
@@ -50,21 +55,27 @@ class AppTextFormField extends StatelessWidget {
     this.enabledBorderSideColor,
     this.labelText,
     this.labelStyle,
+    this.onChanged,
+    this.onTap,
+    this.validator,
     this.focusedBorderColor,
-    this.cursorColor,  this.validator,
+    this.cursorColor,
+    required this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-
       validator: (value) {
       return validator!(value);
       // validator is a function that checks if the text input is valid and
       // returns an error message if it isn't.
       },
-
+      onChanged: onChanged,
+      onTap: onTap,
+      enabled: true,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: labelStyle,
@@ -87,7 +98,7 @@ class AppTextFormField extends StatelessWidget {
               ),
               borderSide: BorderSide(
                 color: focusedBorderColor ?? AppColors.primaryColor,
-                width: 1.3.w,
+                width: 1.5.w,
               ),
             ),
         enabledBorder: OutlineInputBorder(
@@ -97,8 +108,8 @@ class AppTextFormField extends StatelessWidget {
             radius?.r ?? 12.r,
           ),
           borderSide: BorderSide(
-            color: enabledBorderSideColor ?? AppColors.secondaryColor,
-            width: 1.w,
+            color: enabledBorderSideColor ?? AppColors.lightGrey,
+            width: 1.5.w,
           ),
         ),
         hintStyle: hintStyle ?? AppStyles.font14GrayRegular,
@@ -106,12 +117,12 @@ class AppTextFormField extends StatelessWidget {
         hintText: hintText,
         // hintText: Displays the provided hint text.
         suffixIcon: suffixIcon,
-        suffixIconColor: AppColors.secondaryColor,
+        suffixIconColor: suffixIconColor,
         prefixIcon: prefixIcon,
         prefixIconColor: AppColors.secondaryColor,
         // suffixIcon: Displays the provided suffix icon, if any.
 
-        fillColor: fillColor ?? AppColors.secondaryColor,
+        fillColor: fillColor ?? AppColors.lightGrey,
         // fillColor: Uses the provided fillColor or defaults to a light gray color.
         filled: true,
         // filled: true: Ensures the text field is filled with the background color.
@@ -121,7 +132,7 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderSide: BorderSide(
             color: Colors.red,
-            width: 1.w,
+            width: 1.5.w,
           ),
         ),
         // errorBorder set the border styles when there is a validation error.
@@ -131,7 +142,7 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderSide: BorderSide(
             color: Colors.red,
-            width: 1.w,
+            width: 1.5.w,
           ),
         ),
         // focusedErrorBorder set the border styles when there is a validation
@@ -146,6 +157,3 @@ class AppTextFormField extends StatelessWidget {
     );
   }
 }
-// AppTextFormField, which is a specialized text input field for a Flutter
-// application. This widget is designed to be reusable and customizable,
-//with several properties that allow for flexible styling and behavior.
