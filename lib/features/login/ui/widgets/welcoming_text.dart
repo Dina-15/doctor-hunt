@@ -11,11 +11,23 @@ class WelcomingText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [
-          Text(title, style: AppStyles.font28DarkBlackBold),
-          verticalSpace(10),
-          Text(subtitle, style: AppStyles.font14GrayRegular,textAlign: TextAlign.center,)
-        ],
+      children: [
+        Text(
+          title,
+          style: AppStyles.font24DarkBlackBold,
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        verticalSpace(10),
+        Text(
+          subtitle,
+          style: AppStyles.font14GrayRegular,
+          textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        )
+      ],
     );
   }
 }

@@ -22,12 +22,17 @@ class OnboardingPageView extends StatelessWidget {
             Text(
               myPage.title,
               style: AppStyles.font28LightBlackBold,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
             ),
             verticalSpace(10),
             Text(
               myPage.subTitle,
               style: AppStyles.font14GrayRegular,
               textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
             ),
           ],
         ),]

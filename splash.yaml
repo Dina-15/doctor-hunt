@@ -1,10 +1,10 @@
 flutter_native_splash:
   
-  color: "#FFFFFF"
-  #background_image: "assets/background.png"
-
-  image: assets/images/splash_icon.png
-
+#  color: "#FFFFFF"
+  background_image: assets/images/splash_background.png
+  android: true
+  ios: true
+  fullscreen: true
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
   # see the Android 12 section below.
