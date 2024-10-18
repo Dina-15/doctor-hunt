@@ -35,7 +35,7 @@ class _LoginBodyState extends State<SignUpBody> {
             title: signUpModel.title,
             subtitle: signUpModel.subtitle,
           ),
-          verticalSpace(60),
+          verticalSpace(50),
           const AuthOptions(),
           verticalSpace(37),
           Form(

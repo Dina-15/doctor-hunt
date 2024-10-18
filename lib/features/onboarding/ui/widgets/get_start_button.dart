@@ -8,14 +8,15 @@ class GetStartButton extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
-    return  AppTextButton(
-      buttonText: 'Get Started',
-      textStyle: TextStyle(color: Colors.white,
-          fontSize: 18.sp),
-      borderRadius: 15.r,
-      buttonHeight:  40.h,
-      buttonWidth: 250.w,
-      onPressed: onPressed
-    );
+    return AppTextButton(
+        buttonText: 'Get Started',
+        textStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 18.sp,
+        ),
+        borderRadius: 12.r,
+        buttonHeight: 40.h,
+        buttonWidth: 250.w,
+        onPressed: onPressed);
   }
 }

@@ -5,8 +5,8 @@ import 'colors.dart';
 import 'font_weight.dart';
 
 class AppStyles {
-  static TextStyle font28DarkBlackBold = TextStyle(
-    fontSize: 28.sp,
+  static TextStyle font24DarkBlackBold = TextStyle(
+    fontSize: 24.sp,
     fontFamily: "Rubik",
     fontWeight: FontWeightManager.bold,
     color: Colors.black,
