@@ -12,7 +12,7 @@ class WelcomingText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: [
-          Text(title, style: AppStyles.font28DarkBlackBold),
+          Text(title, style: AppStyles.font28DarkBlackBold, textAlign: TextAlign.center,),
           verticalSpace(10),
           Text(subtitle, style: AppStyles.font14GrayRegular,textAlign: TextAlign.center,)
         ],
