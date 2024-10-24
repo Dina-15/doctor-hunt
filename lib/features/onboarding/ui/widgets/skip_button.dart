@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles.dart';
@@ -9,7 +10,7 @@ class SkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      child: Text("Skip", style: AppStyles.font14GrayRegular),
+      child: Text("Skip", style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)),
     );
   }
 }

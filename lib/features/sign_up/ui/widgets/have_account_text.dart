@@ -12,12 +12,10 @@ class HaveAccountText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(children: [
-        TextSpan(text: "Have an account?", style: AppStyles.font14GrayRegular),
+        TextSpan(text: "Have an account?", style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)),
         TextSpan(
             text: " Login",
-            style: AppStyles.font14GrayRegular.copyWith(
-              color: AppColors.primaryColor,
-            ),
+            style: AppStyles.getRegularStyle(),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 Navigator.pushReplacementNamed(context, Routes.loginScreen);

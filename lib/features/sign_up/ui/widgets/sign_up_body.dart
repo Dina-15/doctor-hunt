@@ -1,15 +1,14 @@
+import 'package:doctor_hunt/core/widgets/app_text_button.dart';
+import 'package:doctor_hunt/features/sign_up/ui/widgets/signup_options_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:doctor_hunt/features/sign_up//logic/entities/sign_up_entity.dart';
 import 'package:doctor_hunt/features/sign_up/ui/widgets/name_text_field.dart';
-import 'package:doctor_hunt/features/login//ui/widgets/custom_button.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/auth_options.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/pass_text_field.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/email_text_field.dart';
-import 'package:doctor_hunt/features/login/data/models/auth_page_model.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/welcoming_text.dart';
+import 'package:doctor_hunt/core/widgets/password_text_field.dart';
+import 'package:doctor_hunt/core/widgets/email_text_field.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
+import 'package:doctor_hunt/core/widgets/auth_header_column.dart';
+import 'package:doctor_hunt/core/constants/auth_header_text.dart';
 import 'check_privacy_text.dart';
 import 'have_account_text.dart';
 
@@ -21,7 +20,6 @@ class SignUpBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<SignUpBody> {
-  AuthPageModel signUpModel = SignUpEntity().signUpModel;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -31,12 +29,12 @@ class _LoginBodyState extends State<SignUpBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           verticalSpace(100),
-          WelcomingText(
-            title: signUpModel.title,
-            subtitle: signUpModel.subtitle,
+          const AuthHeaderColumn(
+            title: AuthHeaderText.signUpTitle,
+            subtitle: AuthHeaderText.signUpSubTitle,
           ),
           verticalSpace(50),
-          const AuthOptions(),
+          const SignupOptionsRow(),
           verticalSpace(37),
           Form(
             key: _formKey,
@@ -46,13 +44,15 @@ class _LoginBodyState extends State<SignUpBody> {
               verticalSpace(18),
               const EmailTextField(),
               verticalSpace(18),
-              const PassTextField(),
+              const PasswordTextField(),
             ],
           )),
           const CheckPrivacyText(),
           verticalSpace(6),
-          CustomButton(
-            text: "Sign up",
+          AppTextButton(
+            buttonWidth: 270.w,
+            buttonHeight: 42.h,
+            buttonText: "Sign up",
             onPressed: () {
               if (_formKey.currentState!.validate()) print("Valid");
             },

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:doctor_hunt/core/widgets/auth_header_column.dart';
+import 'package:doctor_hunt/core/constants/auth_header_text.dart';
+import 'package:doctor_hunt/core/widgets/app_text_button.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/custom_button.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/auth_options.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/pass_text_field.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/email_text_field.dart';
-import 'package:doctor_hunt/features/login/data/models/auth_page_model.dart';
-import 'package:doctor_hunt/features/login/logic/entities/login_entity.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/welcoming_text.dart';
-import 'package:doctor_hunt/features/login/ui/widgets/dont_have_account.dart';
+import 'package:doctor_hunt/features/login/ui/widgets/login_options_row.dart';
+import 'package:doctor_hunt/core/widgets/password_text_field.dart';
+import 'package:doctor_hunt/core/widgets/email_text_field.dart';
+import 'package:doctor_hunt/features/login/ui/widgets/toggle_to_sign_up.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/forgot_password.dart';
 
 class LoginBody extends StatefulWidget {
@@ -19,7 +19,6 @@ class LoginBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<LoginBody> {
-  AuthPageModel loginModel = LoginEntity.loginModel;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -28,12 +27,12 @@ class _LoginBodyState extends State<LoginBody> {
       child: Column(
         children: [
           verticalSpace(120),
-          WelcomingText(
-            title: loginModel.title,
-            subtitle: loginModel.subtitle,
+          const AuthHeaderColumn(
+            title: AuthHeaderText.loginTitle,
+            subtitle: AuthHeaderText.loginSubTitle,
           ),
           verticalSpace(60),
-          const AuthOptions(),
+          const LoginOptionsRow(),
           verticalSpace(37),
           Form(
             key: _formKey,
@@ -42,14 +41,15 @@ class _LoginBodyState extends State<LoginBody> {
               children: [
                 const EmailTextField(),
                 verticalSpace(18),
-                const PassTextField(),
-                //! Change name to be more meaningful
+                const PasswordTextField(),
               ],
             ),
           ),
           verticalSpace(30),
-          CustomButton(
-            text: "Login",
+          AppTextButton(
+            buttonWidth: 270.w,
+            buttonHeight: 42.h,
+            buttonText: "Login",
             onPressed: () {
               if (_formKey.currentState!.validate()) print("Valid");
             },
@@ -57,7 +57,7 @@ class _LoginBodyState extends State<LoginBody> {
           verticalSpace(15),
           const ForgotPassword(),
           verticalSpace(40),
-          const DontHaveAccount(),
+          const ToggleToSignUp(),
           verticalSpace(20),
         ],
       ),

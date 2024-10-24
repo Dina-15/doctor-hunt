@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -103,16 +101,16 @@ class AppTextFormField extends StatelessWidget {
             ),
         enabledBorder: OutlineInputBorder(
           // enabledBorder: Defines the border when the text field is not focused,
-          // using a lighter gray color.
+          // using a lighter gray color
           borderRadius: BorderRadius.circular(
             radius?.r ?? 12.r,
           ),
           borderSide: BorderSide(
             color: enabledBorderSideColor ?? AppColors.lightGrey,
-            width: 1.5.w,
+            width: 1.w
           ),
         ),
-        hintStyle: hintStyle ?? AppStyles.font14GrayRegular,
+        hintStyle: hintStyle ?? AppStyles.getSemiRegularStyle(),
         // hintStyle: Uses the provided hintStyle or defaults to a predefined text style.
         hintText: hintText,
         // hintText: Displays the provided hint text.
@@ -152,7 +150,7 @@ class AppTextFormField extends StatelessWidget {
       // cursorColor: Sets the color of the cursor to the primary blue color.
       obscureText: isObscureText ?? false,
       // obscureText: Uses the provided isObscureText value or defaults to false.
-      style: inputStyle ?? AppStyles.font14GrayRegular,
+      style: inputStyle ?? AppStyles.getSemiRegularStyle(),
       // style: Uses the provided inputStyle or defaults to a predefined text style.
     );
   }

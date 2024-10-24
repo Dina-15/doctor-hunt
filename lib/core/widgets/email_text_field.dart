@@ -34,7 +34,6 @@ class _EmailTextFieldState extends State<EmailTextField> {
         }
       },
       keyboardType: TextInputType.emailAddress,
-      hintStyle: AppStyles.font16LightGrayRegular,
       fillColor: Colors.white,
       radius: 12,
       suffixIcon: const Icon(

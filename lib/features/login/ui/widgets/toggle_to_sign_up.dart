@@ -5,26 +5,22 @@ import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 
-class DontHaveAccount extends StatelessWidget {
-  const DontHaveAccount({super.key});
-// Test
-// ??????????
+class ToggleToSignUp extends StatelessWidget {
+  const ToggleToSignUp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(children: [
         TextSpan(
-            text: "Don’t have an account?", style: AppStyles.font14GrayRegular),
+            text: "Don’t have an account?",
+            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)),
         TextSpan(
             text: " Join us",
-            style: AppStyles.font14GrayRegular.copyWith(
-              //! Instaed of copy with we use another way ...
-              color: AppColors.primaryColor,
-            ),
+            style: AppStyles.getRegularStyle(),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushReplacementNamed(context, Routes.signUpScreen);
-                //! Why replacment and not push ?
+                Navigator.pushNamed(context, Routes.signUpScreen);
               }),
       ]),
     );

@@ -1,10 +1,12 @@
-import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 
-import 'package:doctor_hunt/core/theming/styles.dart';
+import '../theming/styles.dart';
+import 'package:doctor_hunt/core/theming/colors.dart';
+import 'package:doctor_hunt/core/helpers/spacing.dart';
 
-class WelcomingText extends StatelessWidget {
-  const WelcomingText({super.key, required this.title, required this.subtitle});
+class AuthHeaderColumn extends StatelessWidget {
+  const AuthHeaderColumn(
+      {super.key, required this.title, required this.subtitle});
 
   final String title;
   final String subtitle;
@@ -14,7 +16,7 @@ class WelcomingText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppStyles.font24DarkBlackBold,
+          style: AppStyles.getBlackBoldStyle(fontSize: 24),
           textAlign: TextAlign.center,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
@@ -22,7 +24,7 @@ class WelcomingText extends StatelessWidget {
         verticalSpace(10),
         Text(
           subtitle,
-          style: AppStyles.font14GrayRegular,
+          style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
           textAlign: TextAlign.center,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

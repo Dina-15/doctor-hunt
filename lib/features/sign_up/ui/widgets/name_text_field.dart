@@ -35,7 +35,6 @@ class _NameTextFieldState extends State<NameTextField> {
         }
       },
       keyboardType: TextInputType.name,
-      hintStyle: AppStyles.font16LightGrayRegular,
       fillColor: Colors.white,
       radius: 12,
       suffixIcon: const Icon(

@@ -21,17 +21,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
         );
-      //! TODO: In release mode, return `null`,To enhance the user experience (UX).
       default:
-        return MaterialPageRoute(
-          builder: (context) => Scaffold(
-            body: Center(
-              child: Text(
-                "No route defined for ${settings.name}",
-              ),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }

@@ -42,10 +42,13 @@ class PasswordValidations extends StatelessWidget {
     return Row(
       children: [
         horizontalSpace(20),
-        CircleAvatar(radius: 2,backgroundColor: AppColors.secondaryColor,),
+        const CircleAvatar(
+          radius: 2,
+          backgroundColor: AppColors.secondaryColor,
+        ),
         Text(
           '  $text',
-          style: AppStyles.font14GrayRegular.copyWith(
+          style: AppStyles.getRegularStyle(
               decoration: isValid ? TextDecoration.lineThrough : null,
               decorationColor: AppColors.secondaryColor,
               decorationThickness: 1,

@@ -3,17 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:doctor_hunt/core/helpers/app_regex.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/password_validations.dart';
-import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/text_form_field.dart';
 
-class PassTextField extends StatefulWidget {
-  const PassTextField({super.key});
+class PasswordTextField extends StatefulWidget {
+  const PasswordTextField({super.key});
 
   @override
-  State<PassTextField> createState() => _PassTextFieldState();
+  State<PasswordTextField> createState() => _PassTextFieldState();
 }
 
-class _PassTextFieldState extends State<PassTextField> {
+class _PassTextFieldState extends State<PasswordTextField> {
   final TextEditingController _passwordController = TextEditingController();
   bool isObscureText = true;
   bool isActivated = false;
@@ -64,7 +63,6 @@ class _PassTextFieldState extends State<PassTextField> {
             isActivated = true;
           },
           keyboardType: TextInputType.visiblePassword,
-          hintStyle: AppStyles.font16LightGrayRegular,
           fillColor: Colors.white,
           radius: 12,
           isObscureText: isObscureText,

@@ -2,6 +2,8 @@ import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../theming/styles.dart';
+
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
   final Color? backgroundColor;
@@ -11,7 +13,7 @@ class AppTextButton extends StatelessWidget {
   final double? buttonHeight;
   final double? elevation;
   final String buttonText;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   final VoidCallback onPressed;
   const AppTextButton({
     super.key,
@@ -22,8 +24,8 @@ class AppTextButton extends StatelessWidget {
     this.buttonHeight,
     this.buttonWidth,
     this.elevation,
+    this.textStyle,
     required this.buttonText,
-    required this.textStyle,
     required this.onPressed,
   });
 
@@ -50,7 +52,7 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       child: Text(buttonText,
-      style: textStyle,
+      style: AppStyles.getBoldStyle(color: Colors.white),
       overflow: TextOverflow.ellipsis,),
     );
   }

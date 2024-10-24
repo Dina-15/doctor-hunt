@@ -11,11 +11,11 @@ class ForgotPassword extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: "Forgot Password",
-        style: AppStyles.font14GrayRegular.copyWith(
+        style: AppStyles.getRegularStyle().copyWith(
           color: AppColors.primaryColor,
         ),
         // recognizer: TapGestureRecognizer()..onTap = (){
-        //   Navigator.pushReplacementNamed(context, Routes.ForgotPassScreen);
+        //   Navigator.pushNamed(context, Routes.ForgotPassScreen);
         // }
       ),
     );

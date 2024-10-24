@@ -2,11 +2,10 @@ import 'package:doctor_hunt/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctor_hunt/core/helpers/spacing.dart';
-import 'custom_container.dart';
+import 'package:doctor_hunt/core/widgets/google&face_custom_container.dart';
 
-class AuthOptions extends StatelessWidget {
-  const AuthOptions({super.key});
-  //! change this name to login options row for better understanding and meanginful name ...
+class LoginOptionsRow extends StatelessWidget {
+  const LoginOptionsRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class AuthOptions extends StatelessWidget {
       children: [
         InkWell(
           onTap: (){},
-          child: CustomContainer(
+          child: GoogleAndFaceCustomContainer(
             text: "Google",
             image: AppAssets.googleIcon,
           ),
@@ -22,7 +21,7 @@ class AuthOptions extends StatelessWidget {
         horizontalSpace(18),
         InkWell(
           onTap: (){},
-          child: CustomContainer(
+          child: GoogleAndFaceCustomContainer(
             text: "Facebook",
             image: AppAssets.facebookIcon,
           ),

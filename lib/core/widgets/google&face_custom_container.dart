@@ -6,9 +6,8 @@ import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/custom_svg_image.dart';
 
-class CustomContainer extends StatelessWidget {
-  //! Need to be more meaningful name 
-  const CustomContainer({super.key, required this.text, required this.image});
+class GoogleAndFaceCustomContainer extends StatelessWidget {
+  const GoogleAndFaceCustomContainer({super.key, required this.text, required this.image});
   final String text;
   final String image;
   @override
@@ -28,7 +27,7 @@ class CustomContainer extends StatelessWidget {
         children: [
           CustomSVGImage(asset: image, width: 18.w, height: 18.h,),
           horizontalSpace(10),
-          Text(text, style: AppStyles.font16LightGrayRegular),
+          Text(text, style: AppStyles.getSemiRegularStyle()),
         ],
       ),
     );

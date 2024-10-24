@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class OnboardingPageView extends StatelessWidget {
             verticalSpace(60),
             Text(
               myPage.title,
-              style: AppStyles.font28LightBlackBold,
+              style: AppStyles.getBlackBoldStyle(),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -29,7 +30,7 @@ class OnboardingPageView extends StatelessWidget {
             verticalSpace(10),
             Text(
               myPage.subTitle,
-              style: AppStyles.font14GrayRegular,
+              style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
