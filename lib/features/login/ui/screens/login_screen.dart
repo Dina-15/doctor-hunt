@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:doctor_hunt/core/widgets/custom_bg_gradient.dart';
+import 'package:doctor_hunt/core/widgets/app_background_image.dart';
 import '../widgets/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,12 +8,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomBgGradient(
-        child: LoginBody(),
+    return const SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: AppBackgroundImage(
+          child: LoginBody(),
+        ),
       ),
-      //! Chnage this nmae to  CustomBackGroundGradient to be more sensible, clean and meangnful name ...
     );
   }
 }

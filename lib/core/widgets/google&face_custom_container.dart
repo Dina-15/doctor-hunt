@@ -5,6 +5,7 @@ import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/custom_svg_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class GoogleAndFaceCustomContainer extends StatelessWidget {
   const GoogleAndFaceCustomContainer({super.key, required this.text, required this.image});
@@ -25,7 +26,7 @@ class GoogleAndFaceCustomContainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomSVGImage(asset: image, width: 18.w, height: 18.h,),
+          SvgPicture.asset(image, width: 18.w, height: 18.h,),
           horizontalSpace(10),
           Text(text, style: AppStyles.getSemiRegularStyle()),
         ],

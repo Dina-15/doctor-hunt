@@ -1,3 +1,6 @@
+import 'package:doctor_hunt/core/routing/routes.dart';
+import 'package:doctor_hunt/core/theming/colors.dart';
+import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/app_text_button.dart';
 import 'package:doctor_hunt/features/sign_up/ui/widgets/signup_options_row.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +10,9 @@ import 'package:doctor_hunt/features/sign_up/ui/widgets/name_text_field.dart';
 import 'package:doctor_hunt/core/widgets/password_text_field.dart';
 import 'package:doctor_hunt/core/widgets/email_text_field.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
-import 'package:doctor_hunt/core/widgets/auth_header_column.dart';
-import 'package:doctor_hunt/core/constants/auth_header_text.dart';
+import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'check_privacy_text.dart';
-import 'have_account_text.dart';
+import 'toggle_to_login.dart';
 
 class SignUpBody extends StatefulWidget {
   const SignUpBody({super.key});
@@ -28,37 +30,47 @@ class _LoginBodyState extends State<SignUpBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          verticalSpace(100),
-          const AuthHeaderColumn(
-            title: AuthHeaderText.signUpTitle,
-            subtitle: AuthHeaderText.signUpSubTitle,
+          verticalSpace(80),
+          Text(
+            AppStrings.signUpTitle,
+            style: AppStyles.getBoldStyle(),
           ),
-          verticalSpace(50),
+          verticalSpace(15),
+          Text(
+            AppStrings.signUpSubTitle,
+            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
+            textAlign: TextAlign.center,
+          ),
+          verticalSpace(40),
           const SignupOptionsRow(),
-          verticalSpace(37),
+          verticalSpace(30),
           Form(
-            key: _formKey,
+              key: _formKey,
               child: Column(
-            children: [
-              NameTextField(),
-              verticalSpace(18),
-              const EmailTextField(),
-              verticalSpace(18),
-              const PasswordTextField(),
-            ],
-          )),
+                children: [
+                  NameTextField(),
+                  verticalSpace(18),
+                  const EmailTextField(),
+                  verticalSpace(18),
+                  const PasswordTextField(),
+                ],
+              ),
+          ),
+          verticalSpace(5),
           const CheckPrivacyText(),
-          verticalSpace(6),
+          verticalSpace(15),
           AppTextButton(
             buttonWidth: 270.w,
             buttonHeight: 42.h,
             buttonText: "Sign up",
             onPressed: () {
-              if (_formKey.currentState!.validate()) print("Valid");
+              // if (_formKey.currentState!.validate()) {
+                Navigator.pushNamed(context, Routes.navigationMainScaffold);
+              // }
             },
           ),
           verticalSpace(20),
-          const HaveAccountText(),
+          const ToggleToLogin(),
           verticalSpace(20),
         ],
       ),

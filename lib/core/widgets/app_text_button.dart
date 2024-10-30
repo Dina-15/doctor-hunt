@@ -52,7 +52,7 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       child: Text(buttonText,
-      style: AppStyles.getBoldStyle(color: Colors.white),
+      style: AppStyles.getSemiBoldStyle(color: Colors.white),
       overflow: TextOverflow.ellipsis,),
     );
   }

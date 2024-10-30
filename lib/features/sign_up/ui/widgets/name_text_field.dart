@@ -26,7 +26,7 @@ class _NameTextFieldState extends State<NameTextField> {
           setState(() {
             isValid = false;
           });
-          return "Please enter a valid email!";
+          return "Please enter a valid name!";
         } else {
           setState(() {
             isValid = true;

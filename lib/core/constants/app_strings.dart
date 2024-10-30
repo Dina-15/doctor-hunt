@@ -1,8 +1,8 @@
-class AuthHeaderText {
-  AuthHeaderText._();
+class AppStrings {
+  AppStrings._();
 
-  static final AuthHeaderText _instance = AuthHeaderText._();
-  factory AuthHeaderText() => _instance;
+  static final AppStrings _instance = AppStrings._();
+  factory AppStrings() => _instance;
 
   static const String loginTitle = "Welcome back";
   static const String loginSubTitle = "You can choose a doctor, book an appointment, and watch live Doctors";

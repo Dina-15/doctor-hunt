@@ -28,7 +28,7 @@ class _CheckPrivacyTextState extends State<CheckPrivacyText> {
         Text("I agree with the Terms of Privacy Policy",
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: AppStyles.getSemiBoldStyle(color: AppColors.secondaryColor)
+          style: AppStyles.getSemiRegularStyle(fontSize: 12)
         ),
       ],
     );

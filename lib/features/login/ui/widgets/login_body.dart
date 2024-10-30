@@ -1,8 +1,9 @@
+import 'package:doctor_hunt/core/routing/routes.dart';
+import 'package:doctor_hunt/core/theming/colors.dart';
+import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:doctor_hunt/core/widgets/auth_header_column.dart';
-import 'package:doctor_hunt/core/constants/auth_header_text.dart';
+import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'package:doctor_hunt/core/widgets/app_text_button.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/login_options_row.dart';
@@ -26,14 +27,20 @@ class _LoginBodyState extends State<LoginBody> {
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         children: [
-          verticalSpace(120),
-          const AuthHeaderColumn(
-            title: AuthHeaderText.loginTitle,
-            subtitle: AuthHeaderText.loginSubTitle,
+          verticalSpace(100),
+          Text(
+            AppStrings.loginTitle,
+            style: AppStyles.getBoldStyle(),
           ),
-          verticalSpace(60),
+          verticalSpace(15),
+          Text(
+            AppStrings.loginSubTitle,
+            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
+            textAlign: TextAlign.center,
+          ),
+          verticalSpace(50),
           const LoginOptionsRow(),
-          verticalSpace(37),
+          verticalSpace(30),
           Form(
             key: _formKey,
             //! then this key will be called from cubit
@@ -45,13 +52,15 @@ class _LoginBodyState extends State<LoginBody> {
               ],
             ),
           ),
-          verticalSpace(30),
+          verticalSpace(40),
           AppTextButton(
             buttonWidth: 270.w,
             buttonHeight: 42.h,
             buttonText: "Login",
             onPressed: () {
-              if (_formKey.currentState!.validate()) print("Valid");
+              // if (_formKey.currentState!.validate()) {
+                Navigator.pushNamed(context, Routes.navigationMainScaffold);
+              // }
             },
           ),
           verticalSpace(15),

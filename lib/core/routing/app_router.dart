@@ -1,10 +1,4 @@
-import 'package:doctor_hunt/core/routing/routes.dart';
-
-import 'package:flutter/material.dart';
-
 import 'routes_export.dart';
-//! Uses routes export file to export all routes.
-
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -20,6 +14,10 @@ class AppRouter {
       case Routes.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
+        );
+      case Routes.navigationMainScaffold:
+        return MaterialPageRoute(
+          builder: (_) => const NavigationMainScaffold(),
         );
       default:
         return null;

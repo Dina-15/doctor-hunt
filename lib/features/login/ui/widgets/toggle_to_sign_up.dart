@@ -13,7 +13,7 @@ class ToggleToSignUp extends StatelessWidget {
     return RichText(
       text: TextSpan(children: [
         TextSpan(
-            text: "Don’t have an account?",
+            text: "Don’t have an account? ",
             style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)),
         TextSpan(
             text: " Join us",
