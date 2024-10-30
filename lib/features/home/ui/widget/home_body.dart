@@ -17,14 +17,13 @@ class HomeBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(child: CategoryListView()),
           const SliverToBoxAdapter(
-            child: CardHeaderRow(title: "Popular Doctor")
-          ),
+              //! TODO: Use the AppStrings class for managing application strings.
+              child: CardHeaderRow(title: "Popular Doctor")),
           SliverToBoxAdapter(
             child: PopularDoctorListView(),
           ),
-         const SliverToBoxAdapter(
-            child: CardHeaderRow(title: "Feature Doctor")
-          ),
+          const SliverToBoxAdapter(
+              child: CardHeaderRow(title: "Feature Doctor")),
           SliverToBoxAdapter(child: FeatureDoctorListView()),
         ],
       ),

@@ -16,21 +16,25 @@ class PopularDoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 165.w,
-      margin: EdgeInsets.only(left: 3.w,right: 15.w, top: 20.h, bottom: 20.h),
+      margin: EdgeInsets.only(left: 3.w, right: 15.w, top: 20.h, bottom: 20.h),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.r),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              offset: const Offset(5,0),
-                color: AppColors.lightGrey, blurRadius: 10.r, spreadRadius: 2.r)
+                offset: const Offset(5, 0),
+                color: AppColors.lightGrey,
+                blurRadius: 10.r,
+                spreadRadius: 2.r)
           ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(12.r),
-            topRight: Radius.circular(12.r),),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12.r),
+              topRight: Radius.circular(12.r),
+            ),
             child: Image.asset(
               cardData.image,
               height: 180.h,
@@ -39,12 +43,18 @@ class PopularDoctorCard extends StatelessWidget {
             ),
           ),
           verticalSpace(8),
-          Text(cardData.name, style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),),
-          Text(cardData.jobTitle!, style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),),
+          Text(
+            cardData.name,
+            style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),
+          ),
+          Text(
+            cardData.jobTitle!,
+            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
+          ),
           Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  5, (index) => RateDrawer(index: index,doctorModel: cardData)))
+              children: List.generate(5,
+                  (index) => RateDrawer(index: index, doctorModel: cardData)))
         ],
       ),
     );
