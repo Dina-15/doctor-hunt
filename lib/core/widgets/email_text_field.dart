@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:doctor_hunt/core/helpers/app_regex.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
-import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/text_form_field.dart';
 
 class EmailTextField extends StatefulWidget {

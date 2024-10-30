@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
-import 'package:doctor_hunt/core/widgets/custom_svg_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GoogleAndFaceCustomContainer extends StatelessWidget {

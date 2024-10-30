@@ -48,7 +48,7 @@ class _LoginBodyState extends State<SignUpBody> {
               key: _formKey,
               child: Column(
                 children: [
-                  NameTextField(),
+                  const NameTextField(),
                   verticalSpace(18),
                   const EmailTextField(),
                   verticalSpace(18),

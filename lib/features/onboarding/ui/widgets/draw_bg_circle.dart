@@ -14,7 +14,7 @@ class DrawBgCircle extends StatelessWidget {
       child: Container(
         width: 340.w,
         height: 340.h,
-        decoration: BoxDecoration(shape: BoxShape.circle,
+        decoration: const BoxDecoration(shape: BoxShape.circle,
         color: AppColors.primaryColor),
       ),
     );

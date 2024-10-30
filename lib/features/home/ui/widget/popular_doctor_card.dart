@@ -2,7 +2,6 @@ import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
-import 'package:doctor_hunt/features/home/data/repo/doctor_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -53,8 +52,10 @@ class PopularDoctorCard extends StatelessWidget {
           ),
           Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(5,
-                  (index) => RateDrawer(index: index, doctorModel: cardData)))
+              children: List.generate(
+                5,
+                (index) => RateDrawer(index: index, doctorModel: cardData),
+              ))
         ],
       ),
     );

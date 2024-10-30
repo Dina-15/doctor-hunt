@@ -1,13 +1,12 @@
 import 'package:doctor_hunt/core/helpers/app_regex.dart';
 import 'package:flutter/material.dart';
 
-import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/text_form_field.dart';
 
 import 'package:doctor_hunt/core/theming/colors.dart';
 
 class NameTextField extends StatefulWidget {
-  NameTextField({super.key});
+  const NameTextField({super.key});
 
   @override
   State<NameTextField> createState() => _NameTextFieldState();
