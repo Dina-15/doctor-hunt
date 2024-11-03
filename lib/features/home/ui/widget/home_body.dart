@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'package:doctor_hunt/features/home/ui/widget/popular_doctor_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,13 +18,12 @@ class HomeBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(child: CategoryListView()),
           const SliverToBoxAdapter(
-              //! TODO: Use the AppStrings class for managing application strings.
-              child: CardHeaderRow(title: "Popular Doctor")),
+              child: CardHeaderRow(title: AppStrings.homeDoctorList1)),
           SliverToBoxAdapter(
             child: PopularDoctorListView(),
           ),
           const SliverToBoxAdapter(
-              child: CardHeaderRow(title: "Feature Doctor")),
+              child: CardHeaderRow(title: AppStrings.homeDoctorList2)),
           SliverToBoxAdapter(child: FeatureDoctorListView()),
         ],
       ),

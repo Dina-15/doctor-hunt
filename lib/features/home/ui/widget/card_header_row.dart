@@ -1,7 +1,6 @@
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardHeaderRow extends StatelessWidget {
   const CardHeaderRow({super.key, required this.title});
@@ -19,7 +18,7 @@ class CardHeaderRow extends StatelessWidget {
         ),
         Text(
           "See all    ",
-          style: AppStyles.getSemiRegularStyle(fontSize: 12.sp),
+          style: AppStyles.getSemiRegularStyle(fontSize: 12),
         ),
       ],
     );

@@ -1,37 +1,26 @@
 import 'package:flutter/material.dart';
-
-import '../../data/models/doctor_model.dart';
+import 'package:flutter_pannable_rating_bar/flutter_pannable_rating_bar.dart';
 
 class RateDrawer extends StatelessWidget {
-  const RateDrawer({super.key, required this.index, required this.doctorModel});
+  const RateDrawer({super.key, required this.doctorRate});
 
-  final int index;
-  final DoctorModel doctorModel;
+  final double doctorRate;
   @override
   Widget build(BuildContext context) {
-    if (doctorModel.rate != 0 && index < doctorModel.rate) {
-      if (index < doctorModel.rate.floor()) {
-        // integer number
-        return const Icon(
-          Icons.star,
-          color: Colors.amber,
-          size: 20,
-        );
-      } else if (doctorModel.rate.floor() < doctorModel.rate) {
-        // fraction part
-        return const Icon(
-          Icons.star_half,
-          color: Colors.amber,
-          size: 20,
-        );
-      }
-    } else {
-      return const Icon(
-        Icons.star_border,
-        color: Colors.amber,
-        size: 20,
-      );
-    }
-    return Container();
+    return PannableRatingBar(
+      rate: doctorRate,
+      spacing: 3,
+      items: List.generate(
+        5,
+            (index) => RatingWidget(
+          selectedColor: Colors.amber,
+          unSelectedColor: Colors.grey[300],
+          child: const Icon(
+            Icons.star,
+            size: 20,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
-import 'package:doctor_hunt/core/theming/styles.dart';
+import 'package:doctor_hunt/features/home/ui/widget/app_bar_title.dart';
 import 'package:doctor_hunt/features/home/ui/widget/home_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,30 +12,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //! TODO: Refactor this screen further.
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
         titleSpacing: 20.w,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "Hi Handwerker!",
-              style: AppStyles.getRegularStyle(
-                  //! TODO: Do not add spacing (sp) as it is already handled in the app styles class.
-                  color: Colors.white,
-                  fontSize: 20.sp),
-            ),
-            verticalSpace(6),
-            Text(
-              "Find Your Doctor",
-              style: AppStyles.getBoldStyle(
-                  //! TODO: Do not add FontWeight as it is already handled in the app styles class.
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700),
-            ),
-          ],
-        ),
+        title: const AppBarTitle(),
         actions: [
           CircleAvatar(
             radius: 33.r,
@@ -53,7 +33,8 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20.r),
                 bottomRight: Radius.circular(20.r),
-              )),
+              ),
+          ),
         ),
       ),
       body: const HomeBody(),

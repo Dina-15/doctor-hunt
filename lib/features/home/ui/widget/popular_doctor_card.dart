@@ -4,7 +4,7 @@ import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'popular_doctor_images.dart';
 import 'rate_drawer.dart';
 
 class PopularDoctorCard extends StatelessWidget {
@@ -29,18 +29,7 @@ class PopularDoctorCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12.r),
-              topRight: Radius.circular(12.r),
-            ),
-            child: Image.asset(
-              cardData.image,
-              height: 180.h,
-              width: 190.w,
-              fit: BoxFit.cover,
-            ),
-          ),
+          PopularDoctorImages(cardDataImage: cardData.image,),
           verticalSpace(8),
           Text(
             cardData.name,
@@ -50,12 +39,7 @@ class PopularDoctorCard extends StatelessWidget {
             cardData.jobTitle!,
             style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
           ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                5,
-                (index) => RateDrawer(index: index, doctorModel: cardData),
-              ))
+          RateDrawer(doctorRate: cardData.rate,)
         ],
       ),
     );

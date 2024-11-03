@@ -14,14 +14,17 @@ class CategoryCard extends StatelessWidget {
       alignment: Alignment.center,
       margin: EdgeInsets.only(right: 15.w, bottom: 18.h),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
-        gradient: LinearGradient(colors: [
-          cardData.cardColor,
-          cardData.cardColor.withOpacity(0.8),
-          cardData.cardColor.withOpacity(0.5),
-        ])
+          borderRadius: BorderRadius.circular(12.r),
+          gradient: LinearGradient(colors: [
+            cardData.cardColor,
+            cardData.cardColor.withOpacity(0.8),
+            cardData.cardColor.withOpacity(0.5),
+          ])),
+      child: CustomSVGImage(
+        asset: cardData.categoryIcon,
+        width: 30,
+        height: 30,
       ),
-      child: CustomSVGImage(asset: cardData.categoryIcon, width: 30.w, height: 30.h,),
     );
   }
 }

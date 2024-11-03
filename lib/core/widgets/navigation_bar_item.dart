@@ -17,8 +17,8 @@ class _NavigationBarItemState extends State<NavigationBarItem> {
   Widget build(BuildContext context) {
     return CustomSVGImage(
       asset: widget.icon,
-      height: 18.h,
-      width: 20.w,
+      height: 18,
+      width: 20,
       color: widget.barIndex == widget.iconIndex ? Colors.white : const Color(0xFF858EA9),
     );
   }

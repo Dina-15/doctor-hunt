@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^6.2.1
   rename: ^3.0.2
   curved_navigation_bar: ^1.0.6
+  flutter_pannable_rating_bar: ^2.7.2+1
 #  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:

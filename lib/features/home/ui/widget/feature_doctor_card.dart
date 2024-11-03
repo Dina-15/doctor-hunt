@@ -5,6 +5,8 @@ import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'feature_card_header_row.dart';
+
 class FeatureDoctorCard extends StatelessWidget {
   const FeatureDoctorCard({super.key, required this.cardData});
 
@@ -27,30 +29,7 @@ class FeatureDoctorCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_border,
-                  size: 20,
-                  color: Colors.grey,
-                ),
-              ),
-              horizontalSpace(10),
-              Icon(
-                Icons.star,
-                color: Colors.amber,
-                size: 20.r,
-              ),
-              Text(
-                '${cardData.rate}  ',
-                style: AppStyles.getSemiBoldStyle(
-                    fontSize: 10, color: Colors.black),
-              )
-            ],
-          ),
+          FeatureCardHeaderRow(doctorRate: cardData.rate),
           ClipRRect(
             borderRadius: BorderRadius.circular(50.r),
             child: Image.asset(
@@ -64,12 +43,12 @@ class FeatureDoctorCard extends StatelessWidget {
           Text(
             cardData.name,
             style: AppStyles.getSemiBoldStyle(
-                fontSize: 12.sp, color: AppColors.boldTextColor),
+                fontSize: 12, color: AppColors.boldTextColor),
           ),
           Text(
             "\$${cardData.pricePerHour!}.00/hours",
             style: AppStyles.getSemiBoldStyle(
-                fontSize: 9.sp, color: AppColors.secondaryColor),
+                fontSize: 9, color: AppColors.secondaryColor),
           ),
         ],
       ),
