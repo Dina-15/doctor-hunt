@@ -2,12 +2,12 @@ import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/core/widgets/app_text_button.dart';
+import 'package:doctor_hunt/core/widgets/password_text_field.dart';
 import 'package:doctor_hunt/features/sign_up/ui/widgets/signup_options_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:doctor_hunt/features/sign_up/ui/widgets/name_text_field.dart';
-import 'package:doctor_hunt/core/widgets/password_text_field.dart';
 import 'package:doctor_hunt/core/widgets/email_text_field.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/constants/app_strings.dart';
@@ -50,9 +50,9 @@ class _LoginBodyState extends State<SignUpBody> {
                 children: [
                   const NameTextField(),
                   verticalSpace(18),
-                  const EmailTextField(),
+                  // EmailTextField(emailController: ),
                   verticalSpace(18),
-                  const PasswordTextField(),
+                  // PasswordTextField(passwordController: ),
                 ],
               ),
           ),

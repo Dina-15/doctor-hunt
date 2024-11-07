@@ -49,6 +49,7 @@ class _NavigationMainScaffoldState extends State<NavigationMainScaffold> {
     return SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
+          extendBody: true,
           body: AppBackgroundImage(child: screens[index]),
           bottomNavigationBar: CurvedNavigationBar(
               items: items,
