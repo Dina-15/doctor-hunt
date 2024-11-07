@@ -5,20 +5,20 @@ import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/widgets/text_form_field.dart';
 
 class EmailTextField extends StatefulWidget {
-  const EmailTextField({super.key});
-
+  const EmailTextField({super.key, required this.emailController});
+  final TextEditingController emailController;
   @override
   State<EmailTextField> createState() => _EmailTextFieldState();
 }
 
 class _EmailTextFieldState extends State<EmailTextField> {
-  final TextEditingController _emailController = TextEditingController();
+
   bool isValid = false;
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
       hintText: 'Email',
-      controller: _emailController,
+      controller: widget.emailController,
       validator: (value) {
         if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
           setState(() {

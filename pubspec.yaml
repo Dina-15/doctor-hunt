@@ -39,15 +39,28 @@ dependencies:
   rename: ^3.0.2
   curved_navigation_bar: ^1.0.6
   flutter_pannable_rating_bar: ^2.7.2+1
-#  font_awesome_flutter: ^10.7.0
+  shared_preferences: ^2.3.2
+  flutter_secure_storage: ^9.2.2
+  pretty_dio_logger: ^1.4.0
+  # Networking
+  dio: ^5.7.0
+  # State management
+  flutter_bloc: ^8.1.6
+  # Code generator (mainly used with cubit & retrofit)
+  freezed: ^2.5.7
+  freezed_annotation: ^2.4.4
+  # Automatically generate code for converting to and from JSON by annotating Dart classes
+  json_annotation: ^4.9.0
+  retrofit: ^4.4.1
+  # for dependency injection
+  get_it: ^8.0.2
 
 dev_dependencies:
-  # flutter_launcher_icons:
-  #   android: true
-  #   ios: true
-  #   image_path: "assets/icon/icon.png"
-  #   image_path_android: "assets/icon/icon.png"
-  #   min_sdk_android: 21 # android min sdk min:16, default 21
+  # build system for Dart code generation and modular compilation
+  build_runner: ^2.4.13
+  # Automatically generate code for converting to and from JSON by annotating Dart classes
+  json_serializable: ^6.8.0
+  retrofit_generator: ^9.1.4
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

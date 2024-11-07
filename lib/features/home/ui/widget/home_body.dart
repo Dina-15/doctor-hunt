@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constants/app_strings.dart';
+import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/features/home/ui/widget/popular_doctor_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,6 +26,7 @@ class HomeBody extends StatelessWidget {
           const SliverToBoxAdapter(
               child: CardHeaderRow(title: AppStrings.homeDoctorList2)),
           SliverToBoxAdapter(child: FeatureDoctorListView()),
+          SliverToBoxAdapter(child: verticalSpace(50,))
         ],
       ),
     );

@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           ),
           horizontalSpace(20),
         ],
-        toolbarHeight: 140.h,
+        toolbarHeight: 120.h,
         flexibleSpace: Container(
           decoration: BoxDecoration(
               color: AppColors.primaryColor,

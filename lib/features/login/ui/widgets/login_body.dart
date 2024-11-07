@@ -1,16 +1,16 @@
-import 'package:doctor_hunt/core/routing/routes.dart';
-import 'package:doctor_hunt/core/theming/colors.dart';
-import 'package:doctor_hunt/core/theming/styles.dart';
+import 'package:doctor_hunt/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'package:doctor_hunt/core/widgets/app_text_button.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/login_options_row.dart';
-import 'package:doctor_hunt/core/widgets/password_text_field.dart';
 import 'package:doctor_hunt/core/widgets/email_text_field.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/toggle_to_sign_up.dart';
 import 'package:doctor_hunt/features/login/ui/widgets/forgot_password.dart';
+import 'login_bloc_listener.dart';
+import 'login_header_text.dart';
+import 'package:doctor_hunt/core/widgets/password_text_field.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -19,8 +19,24 @@ class LoginBody extends StatefulWidget {
   State<LoginBody> createState() => _LoginBodyState();
 }
 
+late TextEditingController emailController;
+late TextEditingController passwordController;
+
 class _LoginBodyState extends State<LoginBody> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    emailController = context.read<LoginCubit>().emailController;
+    passwordController = context.read<LoginCubit>().passwordController;
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,27 +44,17 @@ class _LoginBodyState extends State<LoginBody> {
       child: Column(
         children: [
           verticalSpace(100),
-          Text(
-            AppStrings.loginTitle,
-            style: AppStyles.getBoldStyle(),
-          ),
-          verticalSpace(15),
-          Text(
-            AppStrings.loginSubTitle,
-            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
-            textAlign: TextAlign.center,
-          ),
+          const LoginHeaderText(),
           verticalSpace(50),
           const LoginOptionsRow(),
           verticalSpace(30),
           Form(
-            key: _formKey,
-            //! then this key will be called from cubit
+            key: context.read<LoginCubit>().formKey,
             child: Column(
               children: [
-                const EmailTextField(),
+                EmailTextField(emailController: emailController),
                 verticalSpace(18),
-                const PasswordTextField(),
+                PasswordTextField(passwordController: passwordController),
               ],
             ),
           ),
@@ -58,15 +64,16 @@ class _LoginBodyState extends State<LoginBody> {
             buttonHeight: 42.h,
             buttonText: "Login",
             onPressed: () {
-              // if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, Routes.navigationMainScaffold);
-              // }
+              if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+                context.read<LoginCubit>().emitLoginStates();
+              }
             },
           ),
           verticalSpace(15),
           const ForgotPassword(),
           verticalSpace(40),
           const ToggleToSignUp(),
+          const LoginBlocListener(),
           verticalSpace(20),
         ],
       ),
