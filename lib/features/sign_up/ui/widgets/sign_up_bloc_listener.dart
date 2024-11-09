@@ -24,9 +24,11 @@ class SignUpBlocListener extends StatelessWidget {
         signUpSuccess: (response) {
           Navigator.pushNamed(context, Routes.navigationMainScaffold);
           context.showSnackBar(ApiConstants.successfulRegister);
+          return null;
         },
         signUpFailure: (apiErrorModel) {
           context.showSnackBar(apiErrorModel.message ?? ApiConstants.unKnownErrorMessage);
+          return null;
         },
       ),
       child: const SizedBox.shrink(),

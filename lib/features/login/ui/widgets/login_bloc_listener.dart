@@ -24,9 +24,11 @@ class LoginBlocListener extends StatelessWidget {
         loginSuccess: (loginResponse) {
           Navigator.pushNamed(context, Routes.navigationMainScaffold);
           context.showSnackBar(ApiConstants.successfulLogin);
+          return null;
         },
         loginFailure: (apiErrorModel) {
           context.showSnackBar(apiErrorModel.message ?? ApiConstants.unKnownErrorMessage);
+          return null;
         },
       ),
       child: const SizedBox.shrink(),
