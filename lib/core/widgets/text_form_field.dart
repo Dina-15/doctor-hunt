@@ -107,7 +107,7 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderSide: BorderSide(
             color: enabledBorderSideColor ?? AppColors.lightGrey,
-            width: 1.w
+            width: 1.5.w
           ),
         ),
         hintStyle: hintStyle ?? AppStyles.getSemiRegularStyle(),

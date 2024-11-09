@@ -1,8 +1,3 @@
-import 'package:doctor_hunt/core/di/dependency_injection.dart';
-import 'package:doctor_hunt/features/login/logic/cubit/login_cubit.dart';
-import 'package:doctor_hunt/features/login/logic/cubit/login_states.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'routes_export.dart';
 
 class AppRouter {
@@ -21,8 +16,10 @@ class AppRouter {
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-          builder: (_) => const SignUpScreen(),
-        );
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<SignUpCubit>(),
+                  child: const SignUpScreen(),
+                ));
       case Routes.navigationMainScaffold:
         return MaterialPageRoute(
           builder: (_) => const NavigationMainScaffold(),
