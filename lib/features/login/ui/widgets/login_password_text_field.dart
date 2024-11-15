@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:doctor_hunt/core/widgets/text_form_field.dart';
 
-class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key, required this.passwordController});
+class LoginPasswordTextField extends StatefulWidget {
+  const LoginPasswordTextField({super.key, required this.passwordController});
 
   final TextEditingController passwordController;
 
   @override
-  State<PasswordTextField> createState() => _PassTextFieldState();
+  State<LoginPasswordTextField> createState() => _PassTextFieldState();
 }
 
-class _PassTextFieldState extends State<PasswordTextField> {
+class _PassTextFieldState extends State<LoginPasswordTextField> {
   bool isObscureText = true;
 
   @override
@@ -30,7 +30,6 @@ class _PassTextFieldState extends State<PasswordTextField> {
           },
           keyboardType: TextInputType.visiblePassword,
           fillColor: Colors.white,
-          radius: 12,
           isObscureText: isObscureText,
           suffixIcon: IconButton(
             onPressed: () {

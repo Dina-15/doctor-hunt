@@ -5,3 +5,7 @@ export 'package:doctor_hunt/core/routing/routes.dart';
 export 'package:doctor_hunt/features/home/ui/screens/home_screen.dart';
 export 'package:flutter/material.dart';
 export '../widgets/Navigation_main_scaffold.dart';
+export 'package:doctor_hunt/core/di/dependency_injection.dart';
+export 'package:doctor_hunt/features/login/logic/cubit/login_cubit.dart';
+export 'package:doctor_hunt/features/sign_up/logic/cubit/sign_up_cubit.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';

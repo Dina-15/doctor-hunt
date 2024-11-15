@@ -2,7 +2,7 @@ import 'package:doctor_hunt/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctor_hunt/core/helpers/spacing.dart';
-import '../../../../core/widgets/google&face_custom_container.dart';
+import 'package:doctor_hunt/core/widgets/google&face_custom_container.dart';
 
 class SignupOptionsRow extends StatelessWidget {
   const SignupOptionsRow({super.key});
