@@ -23,33 +23,33 @@ class SignUpBody extends StatefulWidget {
   State<SignUpBody> createState() => _LoginBodyState();
 }
 
-late TextEditingController nameController1;
-late TextEditingController emailController1;
-late TextEditingController passwordController1;
-late TextEditingController phoneController1;
-late TextEditingController genderController1;
-late TextEditingController confirmPasswordController1;
+late TextEditingController nameController;
+late TextEditingController emailController;
+late TextEditingController passwordController;
+late TextEditingController phoneController;
+late TextEditingController genderController;
+late TextEditingController confirmPasswordController;
 
 class _LoginBodyState extends State<SignUpBody> {
   @override
   void initState() {
     super.initState();
-    nameController1 = context.read<SignUpCubit>().nameController1;
-    emailController1 = context.read<SignUpCubit>().emailController1;
-    passwordController1 = context.read<SignUpCubit>().passwordController1;
-    phoneController1 = context.read<SignUpCubit>().phoneController1;
-    genderController1 = context.read<SignUpCubit>().genderController1;
-    confirmPasswordController1 =
-        context.read<SignUpCubit>().confirmPasswordController1;
+    nameController = context.read<SignUpCubit>().nameController;
+    emailController = context.read<SignUpCubit>().emailController;
+    passwordController = context.read<SignUpCubit>().passwordController;
+    phoneController = context.read<SignUpCubit>().phoneController;
+    genderController = context.read<SignUpCubit>().genderController;
+    confirmPasswordController =
+        context.read<SignUpCubit>().confirmPasswordController;
   }
   @override
   void dispose() {
-    nameController1.dispose();
-    emailController1.dispose();
-    passwordController1.dispose();
-    phoneController1.dispose();
-    genderController1.dispose();
-    confirmPasswordController1.dispose();
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    phoneController.dispose();
+    genderController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
   @override
@@ -69,19 +69,19 @@ class _LoginBodyState extends State<SignUpBody> {
             child: Column(
               children: [
                 NameTextField(
-                  nameController: nameController1,
+                  nameController: nameController,
                 ),
                 verticalSpace(20),
-                SignUpEmailTextField(emailController: emailController1),
+                SignUpEmailTextField(emailController: emailController),
                 verticalSpace(20),
-                PhoneTextField(phoneController: phoneController1),
+                PhoneTextField(phoneController: phoneController),
                 verticalSpace(20),
-                GenderTextField(genderController: genderController1),
+                GenderTextField(genderController: genderController),
                 verticalSpace(20),
-                SignUpPasswordTextField(passwordController: passwordController1),
+                SignUpPasswordTextField(passwordController: passwordController),
                 verticalSpace(20),
                 ConfirmPasswordTextField(
-                    confirmPasswordController: confirmPasswordController1)
+                    confirmPasswordController: confirmPasswordController)
               ],
             ),
           ),

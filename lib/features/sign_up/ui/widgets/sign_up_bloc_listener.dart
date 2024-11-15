@@ -27,7 +27,7 @@ class SignUpBlocListener extends StatelessWidget {
           return null;
         },
         signUpFailure: (apiErrorModel) {
-          context.showSnackBar(apiErrorModel.message ?? ApiConstants.unKnownErrorMessage);
+          context.showSnackBar(apiErrorModel.getAllErrorMessages());
           return null;
         },
       ),

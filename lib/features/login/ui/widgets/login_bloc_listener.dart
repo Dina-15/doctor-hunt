@@ -13,24 +13,31 @@ class LoginBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginStates>(
-      listener: (context, state) => state.whenOrNull(
-        loginLoading: () {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.primaryColor,
-            ),
-          );
-        },
-        loginSuccess: (loginResponse) {
-          Navigator.pushNamed(context, Routes.navigationMainScaffold);
-          context.showSnackBar(ApiConstants.successfulLogin);
-          return null;
-        },
-        loginFailure: (apiErrorModel) {
-          context.showSnackBar(apiErrorModel.message ?? ApiConstants.unKnownErrorMessage);
-          return null;
-        },
-      ),
+      listenWhen: (previous, current) =>
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginFailure,
+      listener: (context, state) {
+        state.whenOrNull(
+          loginLoading: () {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.primaryColor,
+              ),
+            );
+          },
+          loginSuccess: (loginResponse) {
+            Navigator.pushNamed(context, Routes.navigationMainScaffold);
+            context.showSnackBar(ApiConstants.successfulLogin);
+            return null;
+          },
+          loginFailure: (apiErrorModel) {
+            context.showSnackBar(
+                apiErrorModel.getAllErrorMessages());
+            return null;
+          },
+        );
+      },
       child: const SizedBox.shrink(),
     );
   }
