@@ -55,7 +55,7 @@ dependencies:
   # for dependency injection
   get_it: ^8.0.2
   # unit testing
-  mockito: ^5.4.4
+  mocktail: ^1.0.4
 
 dev_dependencies:
   # build system for Dart code generation and modular compilation

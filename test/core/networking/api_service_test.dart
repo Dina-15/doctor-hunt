@@ -6,11 +6,10 @@ import 'package:doctor_hunt/features/login/data/models/login_response.dart';
 import 'package:doctor_hunt/features/sign_up/data/models/sign_up_request_body.dart';
 import 'package:doctor_hunt/features/sign_up/data/models/sign_up_response.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'api_service_test.mocks.dart';
+import 'package:mocktail/mocktail.dart';
 
-@GenerateMocks([ApiService])
+class MockApiService extends Mock implements ApiService {}
+
 void main() {
   late MockApiService mockApiService;
 
@@ -30,11 +29,12 @@ void main() {
     test('login method should return success response', () async {
       // arrange
       final loginRequestBody =
-          LoginRequestBody(email: email, password: password);
+      LoginRequestBody(email: email, password: password);
       final expectedLoginResponse = LoginResponse(
           message: "Logged in Successfully.", code: 200, status: true);
-      when(mockApiService.login(loginRequestBody))
-          .thenAnswer((_) => Future.value(expectedLoginResponse));
+
+      when(() => mockApiService.login(loginRequestBody))
+          .thenAnswer((_) async => expectedLoginResponse);
 
       // act
       final response = await mockApiService.login(loginRequestBody);
@@ -46,8 +46,8 @@ void main() {
     test('login method should handle failure response', () async {
       // arrange
       final loginRequestBody =
-          LoginRequestBody(email: wrongEmail, password: wrongPassword);
-      when(mockApiService.login(loginRequestBody)).thenThrow(
+      LoginRequestBody(email: wrongEmail, password: wrongPassword);
+      when(() => mockApiService.login(loginRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(
             path: ApiConstants.login,
@@ -56,8 +56,10 @@ void main() {
       );
 
       // act & assert
-      await expectLater(() async => mockApiService.login(loginRequestBody),
-          throwsA(isA<DioException>()));
+      expect(
+            () async => await mockApiService.login(loginRequestBody),
+        throwsA(isA<DioException>()),
+      );
     });
   });
 
@@ -73,8 +75,9 @@ void main() {
           phone: phone);
       final expectedSignUpResponse = SignUpResponse(
           message: "Signed up Successfully.", code: 200, status: true);
-      when(mockApiService.signUp(signUpRequestBody))
-          .thenAnswer((_) => Future.value(expectedSignUpResponse));
+
+      when(() => mockApiService.signUp(signUpRequestBody))
+          .thenAnswer((_) async => expectedSignUpResponse);
 
       // act
       final response = await mockApiService.signUp(signUpRequestBody);
@@ -92,7 +95,8 @@ void main() {
           password: wrongPassword,
           passwordConfirmation: wrongPassword,
           phone: phone);
-      when(mockApiService.signUp(signUpRequestBody)).thenThrow(
+
+      when(() => mockApiService.signUp(signUpRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(
             path: ApiConstants.signUp,
@@ -101,12 +105,9 @@ void main() {
       );
 
       // act & assert
-      await expectLater(
-        () async => mockApiService.signUp(signUpRequestBody),
+      expect(
+            () async => await mockApiService.signUp(signUpRequestBody),
         throwsA(isA<DioException>()),
-        //! Use Skip in Dart to ignore tests for incomplete features or temporary issues.
-        //! "I added the 'skip' to inform you about its functionality. Feel free to comment it, or remove it if necessary." ...
-        skip: 'This test is currently not applicable',
       );
     });
   });
