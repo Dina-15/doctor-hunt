@@ -25,28 +25,43 @@ void main() {
     mockApiService = MockApiService();
   });
 
+  LoginRequestBody createLoginRequest(String email, String password) {
+    return LoginRequestBody(email: email, password: password);
+  }
+
+//! TODO: It is not recommended to pass more than two arguments to a function.
+//! The suggested solution is to create a model to encapsulate the arguments
+//! and pass the model instead. For more details, refer to the *Clean Code*
+//! book and apply the solution accordingly.
+  SignUpRequestBody createSignUpRequest(
+      String email, String name, int gender, String password, String phone) {
+    return SignUpRequestBody(
+      email: email,
+      name: name,
+      gender: gender,
+      password: password,
+      passwordConfirmation: password,
+      phone: phone,
+    );
+  }
+
   group('Login API Tests', () {
     test('login method should return success response', () async {
       // arrange
-      final loginRequestBody =
-      LoginRequestBody(email: email, password: password);
+      final loginRequestBody = createLoginRequest(email, password);
       final expectedLoginResponse = LoginResponse(
           message: "Logged in Successfully.", code: 200, status: true);
-
       when(() => mockApiService.login(loginRequestBody))
           .thenAnswer((_) async => expectedLoginResponse);
-
       // act
       final response = await mockApiService.login(loginRequestBody);
-
       // assert
       expect(response, expectedLoginResponse);
     });
 
     test('login method should handle failure response', () async {
       // arrange
-      final loginRequestBody =
-      LoginRequestBody(email: wrongEmail, password: wrongPassword);
+      final loginRequestBody = createLoginRequest(wrongEmail, wrongPassword);
       when(() => mockApiService.login(loginRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(
@@ -54,10 +69,9 @@ void main() {
           ),
         ),
       );
-
       // act & assert
       expect(
-            () async => await mockApiService.login(loginRequestBody),
+        () async => await mockApiService.login(loginRequestBody),
         throwsA(isA<DioException>()),
       );
     });
@@ -66,36 +80,22 @@ void main() {
   group('Sign Up API Tests', () {
     test('sign up method should return success response', () async {
       // arrange
-      final signUpRequestBody = SignUpRequestBody(
-          email: email,
-          name: name,
-          gender: gender,
-          password: password,
-          passwordConfirmation: password,
-          phone: phone);
+      final signUpRequestBody =
+          createSignUpRequest(email, name, gender, password, phone);
       final expectedSignUpResponse = SignUpResponse(
           message: "Signed up Successfully.", code: 200, status: true);
-
       when(() => mockApiService.signUp(signUpRequestBody))
           .thenAnswer((_) async => expectedSignUpResponse);
-
       // act
       final response = await mockApiService.signUp(signUpRequestBody);
-
       // assert
       expect(response, expectedSignUpResponse);
     });
 
     test('sign up method should handle failure response', () async {
       // arrange
-      final signUpRequestBody = SignUpRequestBody(
-          email: wrongEmail,
-          name: name,
-          gender: gender,
-          password: wrongPassword,
-          passwordConfirmation: wrongPassword,
-          phone: phone);
-
+      final signUpRequestBody =
+          createSignUpRequest(wrongEmail, name, gender, wrongPassword, phone);
       when(() => mockApiService.signUp(signUpRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(
@@ -103,10 +103,9 @@ void main() {
           ),
         ),
       );
-
       // act & assert
       expect(
-            () async => await mockApiService.signUp(signUpRequestBody),
+        () async => await mockApiService.signUp(signUpRequestBody),
         throwsA(isA<DioException>()),
       );
     });
