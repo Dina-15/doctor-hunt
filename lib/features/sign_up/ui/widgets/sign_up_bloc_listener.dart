@@ -13,6 +13,10 @@ class SignUpBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit, SignUpStates>(
+      listenWhen: (previous, current) =>
+      current is SignUpLoading ||
+          current is SignUpSuccess ||
+          current is SignUpFailure,
       listener: (context, state) => state.whenOrNull(
         signUpLoading: () {
           return const Center(

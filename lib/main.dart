@@ -9,10 +9,16 @@ import 'core/helpers/shared_pref_helper.dart';
 import 'doc_hunt_app.dart';
 import 'global_bloc_observer.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 Future<void> main() async {
   Bloc.observer = GlobalBlocObserver();
 
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   setupGitIt();
   await ScreenUtil.ensureScreenSize();
   await checkIfLoggedInUser();
