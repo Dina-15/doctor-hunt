@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/helpers/constants.dart';
-import 'core/helpers/shared_pref_helper.dart';
+import 'core/helpers/secure_storage_helper.dart';
 import 'doc_hunt_app.dart';
 import 'global_bloc_observer.dart';
 
@@ -27,10 +27,10 @@ Future<void> main() async {
 
 checkIfLoggedInUser() async {
   String? userToken =
-      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
-  if (userToken == null || userToken == "") {
-    isLoggedInUser = false;
-  } else {
+      await SecureStorageHelper.getSecuredString(SharedPrefKeys.userToken);
+  if (userToken != null && userToken.isNotEmpty) {
     isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
   }
 }

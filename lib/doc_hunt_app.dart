@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/helpers/constants.dart';
 import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,8 @@ class DocHuntApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoardingScreen,
+          // initialRoute: Routes.loginScreen,
+          initialRoute: isLoggedInUser? Routes.navigationMainScaffold : Routes.loginScreen,
           onGenerateRoute: appRouter.generateRoute,
         ),
     );

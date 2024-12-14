@@ -1,5 +1,5 @@
+import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'package:doctor_hunt/core/extensions/context_extension.dart';
-import 'package:doctor_hunt/core/networking/api_constants.dart';
 import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/features/sign_up/logic/cubit/sign_up_states.dart';
@@ -27,7 +27,7 @@ class SignUpBlocListener extends StatelessWidget {
         },
         signUpSuccess: (response) {
           Navigator.pushNamed(context, Routes.navigationMainScaffold);
-          context.showSnackBar(ApiConstants.successfulRegister);
+          context.showSnackBar(AppStrings.successfulRegister);
           return null;
         },
         signUpFailure: (apiErrorModel) {

@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/core/helpers/constants.dart';
-import 'package:doctor_hunt/core/helpers/shared_pref_helper.dart';
+import 'package:doctor_hunt/core/helpers/secure_storage_helper.dart';
 import 'package:doctor_hunt/core/networking/dio_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +29,7 @@ class LoginCubit extends Cubit<LoginStates> {
 
   Future<void> saveUserToken(String token) async
   {
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    await SecureStorageHelper.setSecuredString(SharedPrefKeys.userToken, token);
     DioConfig.setTokenIntoHeaderAfterLogin(token);
   }
 }
