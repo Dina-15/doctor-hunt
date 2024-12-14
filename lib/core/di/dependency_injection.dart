@@ -5,6 +5,8 @@ import 'package:doctor_hunt/features/login/data/repo/login_repo.dart';
 import 'package:doctor_hunt/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_hunt/features/sign_up/data/repo/sign_up_repo.dart';
 import 'package:doctor_hunt/features/sign_up/logic/cubit/sign_up_cubit.dart';
+import 'package:doctor_hunt/features/home/data/apis/home_api_service.dart';
+import 'package:doctor_hunt/features/home/data/repo/home_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -21,4 +23,8 @@ Future<void> setupGitIt() async {
   // sign up
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
+
+  // home
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
 }

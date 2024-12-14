@@ -16,13 +16,25 @@ class AppRouter {
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<SignUpCubit>(),
-                  child: const SignUpScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: const SignUpScreen(),
+          ),
+        );
       case Routes.navigationMainScaffold:
         return MaterialPageRoute(
-          builder: (_) => const NavigationMainScaffold(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    SpecializationCubit(getIt())..getSpecializations(),
+              ),
+              BlocProvider(
+                create: (context) => DoctorsCubit(getIt())..getAllDoctors(),
+              ),
+            ],
+            child: const NavigationMainScaffold(),
+          ),
         );
       default:
         return null;

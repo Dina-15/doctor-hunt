@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class SharedPrefHelper {
-  SharedPrefHelper._();
+class SecureStorageHelper {
+  SecureStorageHelper._();
 
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();

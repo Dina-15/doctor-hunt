@@ -1,16 +1,16 @@
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
-import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/data/models/doctors_response_model.dart';
+import 'package:doctor_hunt/features/home/ui/widget/rate_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'popular_doctor_images.dart';
-import 'rate_drawer.dart';
 
-class PopularDoctorCard extends StatelessWidget {
-  const PopularDoctorCard({super.key, required this.cardData});
+class PopularDoctorListItem extends StatelessWidget {
+  const PopularDoctorListItem({super.key, required this.doctorData});
 
-  final DoctorModel cardData;
+  final DoctorsData? doctorData;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,17 +29,24 @@ class PopularDoctorCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          PopularDoctorImages(cardDataImage: cardData.image,),
-          verticalSpace(8),
-          Text(
-            cardData.name,
-            style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),
+          verticalSpace(3),
+          const PopularDoctorImages(),
+          verticalSpace(3),
+          Padding(
+            padding: EdgeInsets.only(left: 3.w),
+            child: Text(
+              doctorData?.name ?? "Doctor",
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),
+            ),
           ),
           Text(
-            cardData.jobTitle!,
+            textAlign: TextAlign.center,
+            doctorData?.degree! ?? "Specialist",
             style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
           ),
-          RateDrawer(doctorRate: cardData.rate,)
+          const RateDrawer(doctorRate: 4,)
         ],
       ),
     );
