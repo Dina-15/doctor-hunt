@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/helpers/constants.dart';
 import 'package:doctor_hunt/core/helpers/secure_storage_helper.dart';
+import 'package:doctor_hunt/core/helpers/shared_pref_helper.dart';
 import 'package:doctor_hunt/core/networking/dio_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,8 @@ class LoginCubit extends Cubit<LoginStates> {
         email: emailController.text, password: passwordController.text));
     response.when(success: (loginResponse) async{
       loginResponseData = loginResponse;
-      await saveUserToken(loginResponse.userData?.token ?? '');
+      await SharedPrefHelper.setData(SharedPrefKeys.userName, loginResponseData?.userData?.userName ?? "");
+      await saveUserToken(loginResponseData?.userData?.token ?? '');
       emit(LoginStates.loginSuccess(loginResponse));
     },
     failure: (error){

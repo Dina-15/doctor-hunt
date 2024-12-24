@@ -37,7 +37,7 @@ Color chooseStateColor(ToastStates state)
   switch(state)
       {
     case ToastStates.SUCCESS:
-      color = Colors.green;
+      color = AppColors.primaryColor;
     case ToastStates.ERROR:
       color = Colors.red;
     case ToastStates.WARNING:

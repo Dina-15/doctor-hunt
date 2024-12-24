@@ -2,7 +2,7 @@ import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
 import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctors_response_model.dart';
-import 'package:doctor_hunt/features/home/ui/widget/rate_drawer.dart';
+import 'package:doctor_hunt/core/widgets/rate_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'popular_doctor_images.dart';
