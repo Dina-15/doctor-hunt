@@ -27,13 +27,15 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           loginSuccess: (loginResponse) {
-            Navigator.pushNamed(context, Routes.navigationMainScaffold);
-            context.showSnackBar(AppStrings.successfulLogin);
+            Navigator.pushNamed(context, Routes.navigationMainScaffold, arguments: context.read<LoginCubit>().loginResponseData);
+            context.showToast(text: AppStrings.successfulLogin,
+            state: ToastStates.SUCCESS);
             return null;
           },
           loginFailure: (apiErrorModel) {
-            context.showSnackBar(
-                apiErrorModel.getAllErrorMessages());
+            context.showToast(
+                text: apiErrorModel.getAllErrorMessages(),
+            state: ToastStates.ERROR);
             return null;
           },
         );

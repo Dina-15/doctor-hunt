@@ -3,7 +3,7 @@ export 'package:doctor_hunt/features/login//ui/screens/login_screen.dart';
 export 'package:doctor_hunt/features/onboarding/ui/screens/onboarding_screen.dart';
 export 'package:doctor_hunt/core/routing/routes.dart';
 export 'package:flutter/material.dart';
-export '../widgets/Navigation_main_scaffold.dart';
+export '../widgets/navigation_main_scaffold.dart';
 export 'package:doctor_hunt/core/di/dependency_injection.dart';
 export 'package:doctor_hunt/features/login/logic/cubit/login_cubit.dart';
 export 'package:doctor_hunt/features/sign_up/logic/cubit/sign_up_cubit.dart';

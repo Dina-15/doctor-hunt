@@ -1,19 +1,19 @@
 import 'package:doctor_hunt/core/widgets/app_text_button.dart';
 import 'package:doctor_hunt/features/sign_up/logic/cubit/sign_up_cubit.dart';
-import 'package:doctor_hunt/features/sign_up/ui/widgets/confirm_password_text_field.dart';
-import 'package:doctor_hunt/features/sign_up/ui/widgets/gender_text_field.dart';
+import 'package:doctor_hunt/features/sign_up/ui/widgets/forrm_text_fields/confirm_password_text_field.dart';
+import 'package:doctor_hunt/features/sign_up/ui/widgets/forrm_text_fields/gender_text_field.dart';
 import 'package:doctor_hunt/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
 import 'package:doctor_hunt/features/sign_up/ui/widgets/signup_options_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:doctor_hunt/features/sign_up/ui/widgets/name_text_field.dart';
+import 'package:doctor_hunt/features/sign_up/ui/widgets/forrm_text_fields/name_text_field.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'check_privacy_text.dart';
-import 'phone_text_field.dart';
-import 'sign_up_email_text_field.dart';
+import 'forrm_text_fields/phone_text_field.dart';
+import 'forrm_text_fields/sign_up_email_text_field.dart';
 import 'sign_up_header_text.dart';
-import 'sign_up_password_text_field.dart';
+import 'forrm_text_fields/sign_up_password_text_field.dart';
 import 'toggle_to_login.dart';
 
 class SignUpBody extends StatefulWidget {

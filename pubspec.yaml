@@ -57,6 +57,7 @@ dependencies:
   # unit testing
   mocktail: ^1.0.4
   firebase_core: ^3.8.1
+  fluttertoast: ^8.2.10
 
 dev_dependencies:
   # build system for Dart code generation and modular compilation

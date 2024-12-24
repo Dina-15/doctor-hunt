@@ -1,3 +1,5 @@
+import 'package:doctor_hunt/features/login/data/models/login_response.dart';
+
 import 'routes_export.dart';
 
 class AppRouter {
@@ -22,6 +24,7 @@ class AppRouter {
           ),
         );
       case Routes.navigationMainScaffold:
+        final userData = settings.arguments as LoginResponse?;
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
@@ -33,7 +36,7 @@ class AppRouter {
                 create: (context) => DoctorsCubit(getIt())..getAllDoctors(),
               ),
             ],
-            child: const NavigationMainScaffold(),
+            child: NavigationMainScaffold(userData: userData),
           ),
         );
       default:

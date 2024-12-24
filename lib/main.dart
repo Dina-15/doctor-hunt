@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/di/dependency_injection.dart';
+import 'package:doctor_hunt/core/helpers/shared_pref_helper.dart';
 import 'package:doctor_hunt/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
   setupGitIt();
   await ScreenUtil.ensureScreenSize();
   await checkIfLoggedInUser();
+  onBoarding = await SharedPrefHelper.getBool(SharedPrefKeys.onBoarding);
   runApp(DocHuntApp(appRouter: AppRouter()));
 }
 

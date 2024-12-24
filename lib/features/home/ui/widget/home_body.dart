@@ -1,6 +1,5 @@
 import 'package:doctor_hunt/core/constants/app_strings.dart';
 import 'package:doctor_hunt/core/helpers/spacing.dart';
-import 'package:doctor_hunt/features/home/ui/widget/popular_doctors/popular_doctor_list_view.dart';
 import 'package:doctor_hunt/features/home/ui/widget/specializations/specialization_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,8 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'cards_title_row.dart';
 import 'feature_doctors/feature_doctors_bloc_builder.dart';
 import 'popular_doctors/popular_doctors_bloc_builder.dart';
-import 'specializations/specialization_list_view.dart';
-import 'feature_doctors/feature_doctor_list_view.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});

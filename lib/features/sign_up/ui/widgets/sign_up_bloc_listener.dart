@@ -26,12 +26,14 @@ class SignUpBlocListener extends StatelessWidget {
           );
         },
         signUpSuccess: (response) {
-          Navigator.pushNamed(context, Routes.navigationMainScaffold);
-          context.showSnackBar(AppStrings.successfulRegister);
+          Navigator.pushNamed(context, Routes.loginScreen);
+          context.showToast(text: AppStrings.successfulRegister,
+          state: ToastStates.SUCCESS);
           return null;
         },
         signUpFailure: (apiErrorModel) {
-          context.showSnackBar(apiErrorModel.getAllErrorMessages());
+          context.showToast(text: apiErrorModel.getAllErrorMessages(),
+          state: ToastStates.ERROR);
           return null;
         },
       ),

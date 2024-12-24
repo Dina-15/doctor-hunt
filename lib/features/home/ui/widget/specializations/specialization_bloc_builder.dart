@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/extensions/context_extension.dart';
 import 'package:doctor_hunt/features/home/logic/specialization_cubit/specialization_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,10 @@ class SpecializationsBlocBuilder extends StatelessWidget {
             specializationsSuccess: (specializationsList) {
               return setupSuccess(specializationsList);
             },
-            specializationsError: (errorHandler) => setupError(),
+            specializationsError: (errorHandler) {
+              context.showToast(text: "Oops! Something went wrong\tplease, check internet connection or login again!", state: ToastStates.WARNING);
+              return setupError();
+            },
             orElse: () {
               return const SizedBox.shrink();
             });
@@ -44,6 +48,6 @@ class SpecializationsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupError() {
-    return const SizedBox.shrink();
+    return const SpecializationShimmerLoading();
   }
 }

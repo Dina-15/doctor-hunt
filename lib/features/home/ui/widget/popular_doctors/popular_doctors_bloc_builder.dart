@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/extensions/context_extension.dart';
 import 'package:doctor_hunt/core/routing/routes_export.dart';
 import 'package:doctor_hunt/features/home/logic/doctors_cubit/doctors_states.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +24,10 @@ class PopularDoctorsBlocBuilder extends StatelessWidget {
             doctorsSuccess: (doctorsList) {
               return setupSuccess(doctorsList);
             },
-            doctorsError: (errorHandler) => setupError(),
+            doctorsError: (errorHandler) {
+            context.showToast(text: "Oops! Something went wrong\tplease, check internet connection or login again!", state: ToastStates.WARNING);
+              return setupError();
+            },
             orElse: () {
               return const SizedBox.shrink();
             });
@@ -33,7 +37,7 @@ class PopularDoctorsBlocBuilder extends StatelessWidget {
 
   /// shimmer loading for Doctors
   Widget setupLoading() {
-    return DoctorsShimmerLoading(width: 165.w, height: 260.h ,);
+    return DoctorsShimmerLoading(width: 150.w, height: 200.h ,);
   }
 
   // display Specialist Doctors only
@@ -50,6 +54,6 @@ class PopularDoctorsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupError() {
-    return const SizedBox.shrink();
+    return DoctorsShimmerLoading(width: 150.w, height: 200.h ,);
   }
 }
