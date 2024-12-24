@@ -1,3 +1,5 @@
+import 'package:doctor_hunt/features/login/data/models/login_response.dart';
+
 import 'routes_export.dart';
 
 class AppRouter {
@@ -16,13 +18,26 @@ class AppRouter {
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<SignUpCubit>(),
-                  child: const SignUpScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: const SignUpScreen(),
+          ),
+        );
       case Routes.navigationMainScaffold:
+        final userData = settings.arguments as LoginResponse?;
         return MaterialPageRoute(
-          builder: (_) => const NavigationMainScaffold(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    SpecializationCubit(getIt())..getSpecializations(),
+              ),
+              BlocProvider(
+                create: (context) => DoctorsCubit(getIt())..getAllDoctors(),
+              ),
+            ],
+            child: NavigationMainScaffold(userData: userData),
+          ),
         );
       default:
         return null;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:doctor_hunt/core/models/user_model.dart';
 import 'package:doctor_hunt/core/networking/api_constants.dart';
 import 'package:doctor_hunt/core/networking/api_service.dart';
 import 'package:doctor_hunt/features/login/data/models/login_request_body.dart';
@@ -25,16 +26,11 @@ void main() {
     mockApiService = MockApiService();
   });
 
-  LoginRequestBody createLoginRequest(String email, String password) {
+  LoginRequestBody createLoginRequest(UserModel user) {
     return LoginRequestBody(email: email, password: password);
   }
 
-//! TODO: It is not recommended to pass more than two arguments to a function.
-//! The suggested solution is to create a model to encapsulate the arguments
-//! and pass the model instead. For more details, refer to the *Clean Code*
-//! book and apply the solution accordingly.
-  SignUpRequestBody createSignUpRequest(
-      String email, String name, int gender, String password, String phone) {
+  SignUpRequestBody createSignUpRequest(UserModel user) {
     return SignUpRequestBody(
       email: email,
       name: name,
@@ -48,7 +44,10 @@ void main() {
   group('Login API Tests', () {
     test('login method should return success response', () async {
       // arrange
-      final loginRequestBody = createLoginRequest(email, password);
+      final user = UserModel(
+          email: email,
+          password: password,);
+      final loginRequestBody = createLoginRequest(user);
       final expectedLoginResponse = LoginResponse(
           message: "Logged in Successfully.", code: 200, status: true);
       when(() => mockApiService.login(loginRequestBody))
@@ -61,7 +60,10 @@ void main() {
 
     test('login method should handle failure response', () async {
       // arrange
-      final loginRequestBody = createLoginRequest(wrongEmail, wrongPassword);
+      final user = UserModel(
+        email: wrongEmail,
+        password: wrongPassword,);
+      final loginRequestBody = createLoginRequest(user);
       when(() => mockApiService.login(loginRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(
@@ -80,8 +82,13 @@ void main() {
   group('Sign Up API Tests', () {
     test('sign up method should return success response', () async {
       // arrange
-      final signUpRequestBody =
-          createSignUpRequest(email, name, gender, password, phone);
+      final user = UserModel(
+          email: email,
+          password: password,
+          name: name,
+          phone: phone,
+          gender: gender);
+      final signUpRequestBody = createSignUpRequest(user);
       final expectedSignUpResponse = SignUpResponse(
           message: "Signed up Successfully.", code: 200, status: true);
       when(() => mockApiService.signUp(signUpRequestBody))
@@ -94,8 +101,13 @@ void main() {
 
     test('sign up method should handle failure response', () async {
       // arrange
-      final signUpRequestBody =
-          createSignUpRequest(wrongEmail, name, gender, wrongPassword, phone);
+      final user = UserModel(
+          email: wrongEmail,
+          password: wrongPassword,
+          name: name,
+          phone: phone,
+          gender: gender);
+      final signUpRequestBody = createSignUpRequest(user);
       when(() => mockApiService.signUp(signUpRequestBody)).thenThrow(
         DioException(
           requestOptions: RequestOptions(

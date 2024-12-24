@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/helpers/shared_pref_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctor_hunt/core/helpers/spacing.dart';
@@ -67,7 +68,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
           onPressed: () {
             setState(() {
               if (_currPageIndex == pagesList.length - 1) {
-                Navigator.pushNamed(context, "/loginScreen");
+                submit();
               } else {
                 _pageController.jumpToPage(++_currPageIndex);
               }
@@ -76,10 +77,18 @@ class _OnboardingBodyState extends State<OnboardingBody> {
         ),
         verticalSpace(15),
         SkipButton(onPressed: () {
-          Navigator.pushNamed(context, "/loginScreen");
+          submit();
         }),
         verticalSpace(25)
       ],
     );
+  }
+
+  void submit() {
+    SharedPrefHelper.setData("onBoarding", true).then((value) {
+      if (value) {
+        Navigator.pushNamed(context, "/loginScreen");
+      }
+    });
   }
 }

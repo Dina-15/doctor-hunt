@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/helpers/constants.dart';
 import 'package:doctor_hunt/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,18 +12,22 @@ class DocHuntApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        child: MaterialApp(
-          title: 'Doc Hunt App',
-          theme: ThemeData(
-            scaffoldBackgroundColor: Colors.transparent,
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-          ),
-          debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoardingScreen,
-          onGenerateRoute: appRouter.generateRoute,
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      child: MaterialApp(
+        title: 'Doc Hunt App',
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.transparent,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         ),
+        debugShowCheckedModeBanner: false,
+        initialRoute: isLoggedInUser
+            ? Routes.navigationMainScaffold
+            : onBoarding
+                ? Routes.loginScreen
+                : Routes.onBoardingScreen,
+        onGenerateRoute: appRouter.generateRoute,
+      ),
     );
   }
 }

@@ -34,4 +34,5 @@ class AppAssets with PngAssets, SvgAssets, VideoAssets {
   static String heartIcon = "${SvgAssets.svgAssets}heart_icon.svg";
   static String eyeIcon = "${SvgAssets.svgAssets}eye_icon.svg";
   static String bodyIcon = "${SvgAssets.svgAssets}body_icon.svg";
+  static String generalDoctor = "${SvgAssets.svgAssets}general_doctor.svg";
 }

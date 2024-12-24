@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         title: const AppBarTitle(),
         actions: [
           CircleAvatar(
-            radius: 33.r,
+            radius: 28.r,
             child: Icon(
               Icons.person,
               size: 45.r,
