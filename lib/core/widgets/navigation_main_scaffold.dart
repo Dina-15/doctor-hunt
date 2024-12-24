@@ -19,7 +19,7 @@ class _NavigationMainScaffoldState extends State<NavigationMainScaffold> {
   @override
   Widget build(BuildContext context) {
     final screens = [
-      HomeScreen(userData: widget.userData),
+      const HomeScreen(),
       const Scaffold(), // create later
       const Scaffold(),
       const Scaffold(),

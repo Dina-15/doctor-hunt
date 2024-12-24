@@ -3,11 +3,6 @@ mixin PngAssets {
 
 }
 
-mixin JpgAssets {
-  static const String jpgAssets = "assets/images/";
-
-}
-
 mixin SvgAssets {
   static const String svgAssets = "assets/svg/";
 }
