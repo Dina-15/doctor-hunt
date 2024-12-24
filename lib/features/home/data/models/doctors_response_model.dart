@@ -24,6 +24,7 @@ class DoctorsData {
   @JsonKey(name: 'appoint_price')
   int? price;
   String? degree;
+  Specialization? specialization;
 
   DoctorsData({
     this.id,
@@ -32,8 +33,19 @@ class DoctorsData {
     this.phone,
     this.price,
     this.degree,
+    this.specialization
   });
 
   factory DoctorsData.fromJson(Map<String, dynamic> json) =>
       _$DoctorsDataFromJson(json);
+}
+
+@JsonSerializable()
+class Specialization
+{
+  String? name;
+  int? id;
+  Specialization({this.name, this.id});
+  factory Specialization.fromJson(Map<String, dynamic> json) =>
+      _$SpecializationFromJson(json);
 }

@@ -26,28 +26,32 @@ class PopularDoctorListItem extends StatelessWidget {
                 blurRadius: 10.r,
                 spreadRadius: 2.r)
           ]),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          verticalSpace(3),
-          const PopularDoctorImages(),
-          verticalSpace(3),
-          Padding(
-            padding: EdgeInsets.only(left: 3.w),
-            child: Text(
-              doctorData?.name ?? "Doctor",
+      child: Padding(
+        padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 5.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            verticalSpace(3),
+            const PopularDoctorImages(),
+            verticalSpace(3),
+            Text(
+              "${doctorData?.name}",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),
             ),
-          ),
-          Text(
-            textAlign: TextAlign.center,
-            doctorData?.degree! ?? "Specialist",
-            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
-          ),
-          const RateDrawer(doctorRate: 4,)
-        ],
+            Text(
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              "${doctorData?.specialization?.name} ${doctorData?.degree}",
+              style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
+            ),
+            const RateDrawer(
+              doctorRate: 4,
+            )
+          ],
+        ),
       ),
     );
   }

@@ -16,9 +16,12 @@ class CardHeaderRow extends StatelessWidget {
           style: AppStyles.getSemiBoldStyle(
               color: AppColors.boldTextColor),
         ),
-        Text(
-          "See all    ",
-          style: AppStyles.getSemiRegularStyle(fontSize: 12),
+        InkWell(
+          onTap: (){},
+          child: Text(
+            "See all    ",
+            style: AppStyles.getSemiRegularStyle(fontSize: 12),
+          ),
         ),
       ],
     );

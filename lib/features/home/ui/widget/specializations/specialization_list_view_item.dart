@@ -40,7 +40,7 @@ class SpecialityListViewItem extends StatelessWidget {
           ),
           verticalSpace(5),
           Text(
-            specializationsData?.name ?? 'Not Found',
+            "${specializationsData?.name}" ,
             style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)
           ),
         ],

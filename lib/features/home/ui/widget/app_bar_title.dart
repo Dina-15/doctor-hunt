@@ -31,7 +31,7 @@ class _AppBarTitleState extends State<AppBarTitle> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          "Hello, ${userName?? "user"}",
+          "Hi ${userName?? "user"}!",
           style: AppStyles.getRegularStyle(color: Colors.white, fontSize: 20),
         ),
         verticalSpace(6),

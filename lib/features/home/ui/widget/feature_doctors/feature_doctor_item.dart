@@ -37,7 +37,7 @@ class FeatureDoctorItem extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: CircleAvatar(
-              radius: 40,
+              radius: 45,
               backgroundColor: AppColors.lightGrey,
               child: SvgPicture.asset(
                 AppAssets.generalDoctor,
@@ -48,7 +48,7 @@ class FeatureDoctorItem extends StatelessWidget {
           ),
           verticalSpace(8),
           Padding(
-            padding: EdgeInsets.only(left: 3.w),
+            padding: EdgeInsets.only(left: 8.w, right: 8.w),
             child: Text(
               doctorData?.name ??"Doctor",
               overflow: TextOverflow.ellipsis,
