@@ -28,11 +28,11 @@ class HomeScreen extends StatelessWidget {
         toolbarHeight: 120.h,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20.r),
-                bottomRight: Radius.circular(20.r),
-              ),
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.r),
+              bottomRight: Radius.circular(20.r),
+            ),
           ),
         ),
       ),

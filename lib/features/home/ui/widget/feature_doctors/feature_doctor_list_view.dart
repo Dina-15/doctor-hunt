@@ -16,7 +16,7 @@ class FeatureDoctorListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) =>
-            FeatureDoctorItem( doctorData: doctorsList[index]),
+            FeatureDoctorItem(doctorData: doctorsList[index]),
       ),
     );
   }

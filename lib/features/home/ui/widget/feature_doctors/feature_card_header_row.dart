@@ -28,8 +28,7 @@ class FeatureCardHeaderRow extends StatelessWidget {
         ),
         Text(
           '$doctorRate  ',
-          style: AppStyles.getSemiBoldStyle(
-              fontSize: 10, color: Colors.black),
+          style: AppStyles.getSemiBoldStyle(fontSize: 10, color: Colors.black),
         )
       ],
     );

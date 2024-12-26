@@ -6,7 +6,6 @@ import 'package:doctor_hunt/features/home/data/models/doctors_response_model.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'feature_card_header_row.dart';
 
 class FeatureDoctorItem extends StatelessWidget {
@@ -19,15 +18,17 @@ class FeatureDoctorItem extends StatelessWidget {
       width: 100.w,
       margin: EdgeInsets.only(left: 3.w, right: 12.w, top: 20.h, bottom: 15.h),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.r),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-                offset: const Offset(5, 0),
-                color: AppColors.lightGrey,
-                blurRadius: 10.r,
-                spreadRadius: 2.r)
-          ]),
+        borderRadius: BorderRadius.circular(12.r),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(5, 0),
+            color: AppColors.lightGrey,
+            blurRadius: 10.r,
+            spreadRadius: 2.r,
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -43,14 +44,15 @@ class FeatureDoctorItem extends StatelessWidget {
                 AppAssets.generalDoctor,
                 height: 47.h,
                 width: 47.w,
+                //! TODO: Consider adding a placeholder or error widget
               ),
             ),
           ),
           verticalSpace(8),
           Padding(
-            padding: EdgeInsets.only(left: 8.w, right: 8.w),
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
             child: Text(
-              doctorData?.name ??"Doctor",
+              doctorData?.name ?? "Doctor",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: AppStyles.getSemiBoldStyle(
@@ -58,7 +60,7 @@ class FeatureDoctorItem extends StatelessWidget {
             ),
           ),
           Text(
-            "\$${doctorData?.price ??""}.00/hours",
+            "${doctorData?.price ?? " "}.00/hours", //! Simplified string interpolation
             style: AppStyles.getSemiBoldStyle(
                 fontSize: 9, color: AppColors.secondaryColor),
           ),

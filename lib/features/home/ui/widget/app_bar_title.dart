@@ -15,23 +15,26 @@ class AppBarTitle extends StatefulWidget {
 class _AppBarTitleState extends State<AppBarTitle> {
   String? userName;
   @override
-  void initState()  {
+  void initState() {
     super.initState();
     _getUserName();
   }
-  Future<void> _getUserName() async{
-    final cachedName = await SharedPrefHelper.getString(SharedPrefKeys.userName);
-     setState(() {
-        userName = cachedName;
-     });
-   }
+
+  Future<void> _getUserName() async {
+    final cachedName =
+        await SharedPrefHelper.getString(SharedPrefKeys.userName);
+    setState(() {
+      userName = cachedName;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          "Hi ${userName?? "user"}!",
+          "Hi ${userName ?? "user"}!",
           style: AppStyles.getRegularStyle(color: Colors.white, fontSize: 20),
         ),
         verticalSpace(6),

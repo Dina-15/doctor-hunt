@@ -14,40 +14,43 @@ class SpecializationsBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SpecializationCubit, SpecializationStates>(
       buildWhen: (previous, current) =>
-      current is SpecializationsLoading ||
+          current is SpecializationsLoading ||
           current is SpecializationsSuccess ||
           current is SpecializationsError,
       builder: (context, state) {
-        return state.maybeWhen(
-            specializationsLoading: () {
-              return setupLoading();
-            },
-            specializationsSuccess: (specializationsList) {
-              return setupSuccess(specializationsList);
-            },
-            specializationsError: (errorHandler) {
-              context.showToast(text: "Oops! Something went wrong\tplease, check internet connection or login again!", state: ToastStates.WARNING);
-              return setupError();
-            },
-            orElse: () {
-              return const SizedBox.shrink();
-            });
+        return state.maybeWhen(specializationsLoading: () {
+          return _setupLoading();
+        }, specializationsSuccess: (specializationsList) {
+          return _setupSuccess(specializationsList);
+        }, specializationsError: (errorHandler) {
+          _showErrorToast(context);
+          return _setupError();
+        }, orElse: () {
+          return const SizedBox.shrink();
+        });
       },
     );
   }
+  /// Shows a toast message for errors
+  void _showErrorToast(BuildContext context) {
+    context.showToast(
+        text:
+            "Oops! Something went wrong\tplease, check internet connection or login again!",
+        state: ToastStates.WARNING);
+  }
 
   /// shimmer loading for specializations and doctors
-  Widget setupLoading() {
+  Widget _setupLoading() {
     return const SpecializationShimmerLoading();
   }
 
-  Widget setupSuccess(specializationsList) {
+  Widget _setupSuccess(specializationsList) {
     return SpecializationListView(
       specializationDataList: specializationsList ?? [],
     );
   }
 
-  Widget setupError() {
+  Widget _setupError() {
     return const SpecializationShimmerLoading();
   }
 }

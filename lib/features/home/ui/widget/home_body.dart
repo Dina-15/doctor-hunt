@@ -26,7 +26,10 @@ class HomeBody extends StatelessWidget {
           const SliverToBoxAdapter(
               child: CardHeaderRow(title: AppStrings.homeDoctorList2)),
           const SliverToBoxAdapter(child: FeatureDoctorsBlocBuilder()),
-          SliverToBoxAdapter(child: verticalSpace(50,))
+          SliverToBoxAdapter(
+              child: verticalSpace(
+            50,
+          ))
         ],
       ),
     );

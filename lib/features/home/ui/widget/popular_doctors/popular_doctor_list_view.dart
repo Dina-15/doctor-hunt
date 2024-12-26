@@ -16,7 +16,7 @@ class PopularDoctorListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: (context, index) {
-              return PopularDoctorListItem(doctorData: doctorsList[index]);
+            return PopularDoctorListItem(doctorData: doctorsList[index]);
           }),
     );
   }

@@ -10,12 +10,10 @@ class SpecializationListView extends StatefulWidget {
       {super.key, required this.specializationDataList});
 
   @override
-  State<SpecializationListView> createState() =>
-      _SpecializationListViewState();
+  State<SpecializationListView> createState() => _SpecializationListViewState();
 }
 
 class _SpecializationListViewState extends State<SpecializationListView> {
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(

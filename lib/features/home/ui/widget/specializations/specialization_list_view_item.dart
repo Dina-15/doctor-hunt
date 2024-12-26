@@ -5,14 +5,13 @@ import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../data/models/specialization_response_model.dart';
 
 class SpecialityListViewItem extends StatelessWidget {
   final SpecializationsData? specializationsData;
   const SpecialityListViewItem({
     super.key,
-    this.specializationsData,
+    required this.specializationsData,
   });
 
   @override
@@ -21,7 +20,7 @@ class SpecialityListViewItem extends StatelessWidget {
       padding: EdgeInsets.only(left: 3.w, right: 10.w),
       child: Column(
         children: [
-           Container(
+          Container(
             decoration: BoxDecoration(
               border: Border.all(
                 color: AppColors.primaryColor,
@@ -29,19 +28,21 @@ class SpecialityListViewItem extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: CircleAvatar(
-              radius: 45,
+              radius: 45.r,
               backgroundColor: AppColors.lightGrey,
               child: SvgPicture.asset(
                 AppAssets.generalDoctor,
                 height: 50.h,
                 width: 50.w,
+                //! Consider adding error widget
               ),
             ),
           ),
           verticalSpace(5),
           Text(
-            "${specializationsData?.name}" ,
-            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor)
+            specializationsData?.name ??
+                "Unknown Specialization", //! Default value for safety
+            style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
           ),
         ],
       ),

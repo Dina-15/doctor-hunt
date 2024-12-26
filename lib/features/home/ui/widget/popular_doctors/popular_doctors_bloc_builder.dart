@@ -13,47 +13,59 @@ class PopularDoctorsBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DoctorsCubit, DoctorsStates>(
       buildWhen: (previous, current) =>
-      current is DoctorsLoading ||
+          current is DoctorsLoading ||
           current is DoctorsSuccess ||
           current is DoctorsError,
       builder: (context, state) {
-        return state.maybeWhen(
-          doctorsLoading: () {
-            return setupLoading();
-          },
-            doctorsSuccess: (doctorsList) {
-              return setupSuccess(doctorsList);
-            },
-            doctorsError: (errorHandler) {
-            context.showToast(text: "Oops! Something went wrong\tplease, check internet connection or login again!", state: ToastStates.WARNING);
-              return setupError();
-            },
-            orElse: () {
-              return const SizedBox.shrink();
-            });
+        return state.maybeWhen(doctorsLoading: () {
+          return _setupLoading();
+        }, doctorsSuccess: (doctorsList) {
+          return _setupSuccess(doctorsList);
+        }, doctorsError: (errorHandler) {
+          _showErrorToast(context);
+          return _setupError();
+        }, orElse: () {
+          return const SizedBox.shrink();
+        });
       },
     );
   }
 
+  void _showErrorToast(BuildContext context) {
+    context.showToast(
+        text:
+            "Oops! Something went wrong\tplease, check internet connection or login again!",
+        state: ToastStates.WARNING);
+  }
+
   /// shimmer loading for Doctors
-  Widget setupLoading() {
-    return DoctorsShimmerLoading(width: 150.w, height: 200.h ,);
+  Widget _setupLoading() {
+    return _buildShimmerLoading();
+  }
+
+  /// Reusable method to build shimmer loading widget
+  DoctorsShimmerLoading _buildShimmerLoading() {
+    return DoctorsShimmerLoading(
+      width: 150.w,
+      height: 200.h,
+    );
   }
 
   // display Specialist Doctors only
-  Widget setupSuccess(doctorsList) {
+  Widget _setupSuccess(doctorsList) {
     List<DoctorsData> specialistDoctors = [];
-    for(DoctorsData doc in doctorsList) {
+    for (DoctorsData doc in doctorsList) {
       if (doc.degree == "Specialist") {
         specialistDoctors.add(doc);
       }
     }
-    return PopularDoctorListView(
-      doctorsList: specialistDoctors
-    );
+    return PopularDoctorListView(doctorsList: specialistDoctors);
   }
 
-  Widget setupError() {
-    return DoctorsShimmerLoading(width: 150.w, height: 200.h ,);
+  Widget _setupError() {
+    return DoctorsShimmerLoading(
+      width: 150.w,
+      height: 200.h,
+    );
   }
 }
