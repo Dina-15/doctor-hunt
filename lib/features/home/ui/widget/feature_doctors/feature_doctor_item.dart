@@ -38,7 +38,7 @@ class FeatureDoctorItem extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: CircleAvatar(
-              radius: 45,
+              radius: 45.r,
               backgroundColor: AppColors.lightGrey,
               child: SvgPicture.asset(
                 AppAssets.generalDoctor,
@@ -60,7 +60,7 @@ class FeatureDoctorItem extends StatelessWidget {
             ),
           ),
           Text(
-            "${doctorData?.price ?? " "}.00/hours", //! Simplified string interpolation
+            "${doctorData?.price ?? " "}.00/hours",
             style: AppStyles.getSemiBoldStyle(
                 fontSize: 9, color: AppColors.secondaryColor),
           ),

@@ -11,7 +11,7 @@ class FeatureDoctorListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 190.h,
+      height: 200.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,

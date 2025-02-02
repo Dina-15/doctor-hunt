@@ -1,15 +1,15 @@
 import 'package:doctor_hunt/core/helpers/spacing.dart';
 import 'package:doctor_hunt/core/theming/colors.dart';
-import 'package:doctor_hunt/core/theming/styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctors_response_model.dart';
 import 'package:doctor_hunt/core/widgets/rate_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'build_doctor_name.dart';
+import 'build_doctor_specialization.dart';
 import 'popular_doctor_images.dart';
 
 class PopularDoctorListItem extends StatelessWidget {
   const PopularDoctorListItem({super.key, required this.doctorData});
-  //! TODO: Refactor this into a separate widgets..
 
   final DoctorsData? doctorData;
 
@@ -38,31 +38,12 @@ class PopularDoctorListItem extends StatelessWidget {
             verticalSpace(3),
             const PopularDoctorImages(),
             verticalSpace(3),
-            _buildDoctorName(),
-            _buildDoctorSpecialization(),
+            BuildDoctorName(name: doctorData?.name,),
+            BuildDoctorSpecialization(name: doctorData?.specialization?.name ,degree:  doctorData?.degree),
             const RateDrawer(doctorRate: 4),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildDoctorName() {
-    return Text(
-      doctorData?.name ?? "Unknown Doctor", //! Default value for safety
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
-      style: AppStyles.getSemiBoldStyle(color: AppColors.boldTextColor),
-    );
-  }
-
-  Widget _buildDoctorSpecialization() {
-    return Text(
-      textAlign: TextAlign.center,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
-      "${doctorData?.specialization?.name ?? "Specialization not available"} ${doctorData?.degree ?? ""}",
-      style: AppStyles.getRegularStyle(color: AppColors.secondaryColor),
     );
   }
 }

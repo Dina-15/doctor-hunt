@@ -52,19 +52,21 @@ class FeatureDoctorsBlocBuilder extends StatelessWidget {
     );
   }
 
-  Widget _setupError() {
-    //! TODO: Consider adding error widget
-    return DoctorsShimmerLoading(
-      width: 100.w,
-      height: 150.h,
-    );
-  }
-
-  //  Widget _setupError() {
-  //   return Center(
-  //     child: Text(
-  //       "An error occurred. Please try again later.", //!Example: Improved error handling
-  //     ),
+  // Widget _setupError() {
+  //   return DoctorsShimmerLoading(
+  //     width: 100.w,
+  //     height: 150.h,
   //   );
   // }
+
+   Widget _setupError() {
+    ErrorWidget.builder = ( FlutterErrorDetails exception) {
+      return Center(
+        child: Text(
+          "An error occurred. Please try again later.",
+        ),
+      );
+    };
+    return SizedBox.shrink();
+  }
 }

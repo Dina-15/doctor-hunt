@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SpecializationShimmerLoading extends StatelessWidget {
-  //! TODO: Refactor this class
+
+  static const double _avatarRadius = 45;
   const SpecializationShimmerLoading({super.key});
 
   @override
@@ -61,6 +62,4 @@ class SpecializationShimmerLoading extends StatelessWidget {
       ),
     );
   }
-
-  static const double _avatarRadius = 45;
 }
